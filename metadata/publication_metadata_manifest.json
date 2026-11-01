@@ -1,0 +1,30 @@
+{
+  "status": "published-data-authenticated-reference-loader-validation-pass",
+  "data_revision": "b80dfbc61d338961d46034df67aca36f5b1bcf17",
+  "datePublished": "2026-11-01T14:07:25.449146Z",
+  "croissant_sha256": "86cdd2e9a08e2277bc1203be544e0779d590b0d3457c843ef61fdc31b78248ff",
+  "schema_sha256": "15097712556fb05c0deeb50668f89fc6e10a09b88c7e72ab9ae5ea73cd682235",
+  "distribution_hashes_unchanged": true,
+  "record_sets": 8,
+  "records": 4773,
+  "reviewed_support": {
+    "file_count": 777,
+    "facts_only": true,
+    "manifest_sha256": "fd0c7d101ccb07925790bbcaeea35d1acc00ef51ca540c3a218b57964a837717",
+    "export_policy": "reviewed-fact-projection-1.0",
+    "public_export_manifest_sha256": "234668491ac3a353fb1a65c2da3b1322b264dd58ac0f55a54c1a5eb16e96c037",
+    "retained_reviewed_source_groups": 220,
+    "final_source_groups": 232,
+    "description": "777 source-relevant reviewed factual support records; explanatory fields omitted; final evaluation QA/scoring unchanged"
+  },
+  "qa_or_scores_changed": false,
+  "remote_loading_verified": true,
+  "online_checker_verified": false,
+  "authenticated_validation_checked_utc": "2026-11-01T14:08:51.179703+00:00",
+  "remote_files_hash_checked": 24,
+  "records_loaded": 4773,
+  "all_records_schema_validated": true,
+  "online_checker_static_json_core_rai": "PASS",
+  "online_checker_anonymous_record_generation": "EXPECTED_GATE_HTTP_401",
+  "online_checker_all_checks_passed": false
+}

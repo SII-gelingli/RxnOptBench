@@ -1,17 +1,18 @@
 {
-  "status": "local-validation-pass-publication-pending",
+  "status": "authenticated-reference-loader-validation-pass",
+  "checked_utc": "2026-11-01T14:08:51.179703+00:00",
   "version": "0.2.6-target-policy",
-  "published": false,
-  "immutable_remote_revision": null,
-  "remote_and_online_checker_validated": false,
-  "croissant_sha256": "5584dc3ce46a6d9610ec5b15218ce0b22f2d00345d4b750badb8b6ad2a8cf0b6",
+  "data_revision": "b80dfbc61d338961d46034df67aca36f5b1bcf17",
+  "datePublished": "2026-11-01T14:07:25.449146Z",
+  "croissant_sha256": "86cdd2e9a08e2277bc1203be544e0779d590b0d3457c843ef61fdc31b78248ff",
   "record_schema_sha256": "15097712556fb05c0deeb50668f89fc6e10a09b88c7e72ab9ae5ea73cd682235",
   "record_sets": 8,
   "records_loaded": 4773,
-  "distribution_hashes_checked": 24,
-  "native_json_jsonl_and_loaded_records_equal": true,
-  "all_records_json_schema_validated": true,
-  "required_rai_topics": {
+  "fresh_remote_distributions_hash_checked": 24,
+  "all_remote_file_http_status_200": true,
+  "native_json_jsonl_loaded_records_equal": true,
+  "all_records_nested_json_schema_validated": true,
+  "required_rai_present": {
     "rai:dataLimitations": true,
     "rai:dataBiases": true,
     "rai:personalSensitiveInformation": true,
@@ -22,78 +23,28 @@
     "prov:wasGeneratedBy": true
   },
   "static_errors": [],
-  "static_warnings": [
-    "[Metadata(RxnOptBench)] Property \"https://schema.org/datePublished\" is recommended, but does not exist."
-  ],
-  "datePublished_omitted_reason": "Candidate has not been published; no publication date is asserted.",
-  "raw_source_strings": 236,
-  "casefold_source_identifiers": 232,
-  "parent_tables": 552,
-  "released_unique_observations": 4768,
-  "observed_dr_rr_axes_excluded": 65,
-  "human_verified_dr_rr_axes_included": 0,
-  "global_best_scope": "all_released_observations_for_parent_table",
-  "safe_public_metadata_files": [
-    "croissant.draft.json",
-    "record_schema.json",
-    "load_croissant.py",
-    "requirements.txt",
-    "README_PUBLIC.txt",
-    "validation_local.json",
-    "verification_summary.json"
-  ],
-  "data_host_only": [
-    "transport/"
-  ],
-  "local_packaging_only": [
-    "build_manifest.json"
-  ],
-  "limitations": "Structural transport validation does not certify scientific labels, upstream rights, remote availability, or conference approval of gating.",
-  "review_snapshot_exact_regeneration_established": false,
-  "paired_comparison_causal_isolation_established": false,
-  "original_provider_prompt_order_verified": false,
-  "public_source_category_evidence": {
-    "final_source_dois": 232,
-    "publisher_families": 6,
-    "acs_si_license_entries": 102,
-    "identity_matched_to_registry": true,
-    "project_wide_clearance_asserted": false,
-    "location_in_hf_candidate": "metadata/source_rights/"
-  },
-  "historical_unknowns": [
-    "download dates",
-    "institutional subscription details",
-    "API hosting"
-  ],
-  "unresolved_source_scope": [
-    "actual SI/source-file correspondence and separately licensed or third-party scope",
-    "expression in notes within the 777 source-relevant reviewed records; source relevance does not establish item-level license clearance"
-  ],
-  "license_legal_text_changed": false,
-  "data_and_scores_changed_by_source_documentation_update": false,
-  "reviewed_release_scope": {
-    "current_source_relevant_reviewed_records": 777,
+  "static_warnings": [],
+  "mlcroissant_version": "1.1.1",
+  "jsonschema_version": "4.26.0",
+  "reviewed_support": {
+    "file_count": 777,
+    "facts_only": true,
+    "manifest_sha256": "fd0c7d101ccb07925790bbcaeea35d1acc00ef51ca540c3a218b57964a837717",
+    "export_policy": "reviewed-fact-projection-1.0",
+    "public_export_manifest_sha256": "234668491ac3a353fb1a65c2da3b1322b264dd58ac0f55a54c1a5eb16e96c037",
+    "retained_reviewed_source_groups": 220,
     "final_source_groups": 232,
-    "bridged_final_tables": 416,
-    "final_source_groups_without_reviewed_match": 12,
-    "missing_mappings_fabricated": false,
-    "historical_full_snapshot_construction_experiment": {
-      "reviewed_records": 884,
-      "constructed_questions": 4473,
-      "describes_current_reduced_scope": false
-    },
-    "current_reduced_scope_construction_rerun": false,
-    "exact_final_question_regeneration_claimed": false,
-    "evaluation_questions_changed_by_scope_update": false,
-    "scores_changed_by_scope_update": false,
-    "license_clearance_inferred_from_source_relevance": false
+    "description": "777 source-relevant reviewed factual support records; explanatory fields omitted; final evaluation QA/scoring unchanged"
   },
-  "scope_update_integrity": {
-    "all_24_distribution_hashes_unchanged": true,
-    "record_schema_hash_unchanged": true,
-    "official_local_validation_runs_for_scope_update": 1,
-    "model_or_score_calls": 0,
-    "source_quality_investigation_performed": false
-  },
-  "data_and_scores_changed_by_reviewed_scope_update": false
+  "qa_or_scores_changed_by_publication": false,
+  "distribution_hashes_unchanged": true,
+  "schema_bytes_unchanged": true,
+  "remote_validation_runs": 1,
+  "local_complete_validation_repeated": false,
+  "model_or_score_calls": 0,
+  "online_checker_verified": false,
+  "limits": "This verifies authorized fresh immutable file access, hashes and lossless schema-valid loading. It does not certify source rights, scientific correctness, original provider generations or conference approval of the gate.",
+  "online_checker_static_json_core_rai": "PASS",
+  "online_checker_anonymous_record_generation": "EXPECTED_GATE_HTTP_401",
+  "online_checker_all_checks_passed": false
 }

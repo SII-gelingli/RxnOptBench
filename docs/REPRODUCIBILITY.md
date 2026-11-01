@@ -23,8 +23,7 @@ not a universal hardware/software lockfile.
 
 The available construction scripts expect list-format table inputs carrying
 original table/row metadata. The reviewed records use a later schema keyed by
-row index and omit that original identity metadata. The local publication
-candidate retains 777 final reviewed files from final-benchmark source articles;
+row index and omit that original identity metadata. The release contains public field exports of 777 final reviewed files from final-benchmark source articles;
 107 files from 42 other source articles are omitted. This source-level selection
 does not establish that every retained table contributed to a final question.
 Automatic extraction drafts, caches and editing history are not published.
@@ -127,3 +126,17 @@ remain in `results/deepseek_repeatability/outputs/`. These retain all eight
 subsets and allow independent verification of the seven reported mean/range
 metrics. Aggregate agreement validates arithmetic, not missing source rights
 or human adjudication.
+
+## Public support-record field export
+
+The 777 support records omit freeform explanations and structural descriptions;
+all retained values and entry order are preserved. `reviewed_data/README.md`
+and `public_export_manifest.json` list the exact boundary and original/public
+hashes. Some omitted notes carried additional context; this export does not
+reconstruct that context or claim exact final-QA regeneration. Final questions,
+labels, archived predictions and evaluation rules are unchanged.
+
+The historical optional association map records original complete reviewed-file
+hashes. It must not be passed to the adapter for the public field projections;
+the hash guard will reject those different bytes. No new association validation
+or construction experiment is implied by retaining that historical map.

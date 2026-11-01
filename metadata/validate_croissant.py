@@ -20,7 +20,14 @@ import mlcroissant
 import requests
 
 HERE = Path(__file__).resolve().parent
-REQUIRED_RAI = ("rai:dataLimitations", "rai:dataBiases", "rai:personalSensitiveInformation", "rai:dataUseCases", "rai:dataSocialImpact", "rai:hasSyntheticData", "prov:wasDerivedFrom", "prov:wasGeneratedBy")
+# In a portable HF data checkout metadata/ is directly beneath the data root.
+# A separate GitHub checkout can supply --stage PATH_TO_DATA explicitly.
+DEFAULT_STAGE = HERE.parent
+REQUIRED_RAI = (
+    "rai:dataLimitations", "rai:dataBiases", "rai:personalSensitiveInformation",
+    "rai:dataUseCases", "rai:dataSocialImpact", "rai:hasSyntheticData",
+    "prov:wasDerivedFrom", "prov:wasGeneratedBy",
+)
 
 
 def sha256(path: Path) -> str:
@@ -33,17 +40,21 @@ def as_text(value) -> str:
 
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--metadata", type=Path, default=HERE / "croissant.draft.json")
-    p.add_argument("--stage", type=Path, required=True, help="Downloaded HF artifact root containing data/.")
-    p.add_argument("--transport-dir", type=Path, help="Default: --stage/data/croissant.")
+    p.add_argument("--metadata", type=Path, default=HERE / "croissant.json")
+    p.add_argument("--stage", type=Path, default=DEFAULT_STAGE)
     p.add_argument("--mode", choices=["local", "authenticated"], default="local")
     p.add_argument("--report", type=Path)
+    p.add_argument("--transport-dir", type=Path, help="Existing local TSV.gz directory; no transport bytes are regenerated.")
     p.add_argument("--all-distributions", action="store_true", help="Also remotely hash-check native JSON and JSONL resources.")
     p.add_argument("--skip-json-schema", action="store_true")
     args = p.parse_args()
     metadata = json.loads(args.metadata.read_text())
     if args.mode == "authenticated" and metadata["description"].startswith("DRAFT:"):
         p.error("Candidate is unpublished: remote main URLs belong to an earlier version. Use --mode local; remote validation must follow an independently verified publication handoff.")
+    import re
+    revisions = {d["contentUrl"].split("/resolve/")[1].split("/")[0] for d in metadata["distribution"]}
+    if len(revisions) != 1 or not re.fullmatch(r"[0-9a-f]{40}", next(iter(revisions))):
+        p.error("Formal metadata requires one immutable 40-character revision for all distributions.")
     report = {
         "status": "running", "checked_utc": datetime.now(timezone.utc).isoformat(),
         "mode": args.mode, "metadata_sha256": sha256(args.metadata),
@@ -95,7 +106,7 @@ def main() -> None:
             report["authentication"] = "none; local files mapped explicitly"
             for file_id, resource in resources.items():
                 if file_id.startswith("transport/"):
-                    path = (args.transport_dir or args.stage / "data/croissant") / resource["name"]
+                    path = (args.transport_dir or args.metadata.parent / "transport") / resource["name"]
                     mapping[file_id] = str(path.resolve())
                 elif file_id.startswith("native-json/"):
                     path = args.stage / "data/original_json" / resource["name"]
@@ -138,7 +149,7 @@ def main() -> None:
             "This checks the official reference loader, complete local record equality, declared RAI presence, and nested "
             "structural schema. It does not establish scientific label correctness, source-document licensing, gated-access "
             "acceptance by reviewers, or approval by the NeurIPS online validator. Authenticated mode verifies authorized "
-            "network access; anonymous downloads remain gated. This draft has not undergone remote loading or online checker validation."
+            "network access; anonymous downloads remain gated. Online-checker validation, source rights, and gate-maintenance acceptance are separate checks."
         )
     except Exception as error:
         report["status"] = "fail"
@@ -147,7 +158,6 @@ def main() -> None:
         report["error"] = str(error)[:2000]
         raise
     finally:
-        output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
         print(json.dumps({"report": str(output), "status": report["status"], "records_loaded": report.get("records_loaded", 0)}))
 

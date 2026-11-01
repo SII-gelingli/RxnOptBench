@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
@@ -39,6 +40,8 @@ def load_dataset(metadata_path: str | Path, transport_dir: str | Path | None = N
             raise ValueError("Expected pinned Hugging Face dataset distribution URL")
         repo_id = "/".join(parts[2:4])
         revision = unquote(parts[5])
+        if not re.fullmatch(r"[0-9a-f]{40}", revision):
+            raise ValueError("Formal remote loading requires an immutable 40-character data revision")
         filename = unquote("/".join(parts[6:]))
         local_path = hf_hub_download(repo_id=repo_id, repo_type="dataset", revision=revision, filename=filename)
         actual = hashlib.sha256(Path(local_path).read_bytes()).hexdigest()
@@ -58,7 +61,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("metadata", type=Path)
     parser.add_argument("--subset", default="multiple_choice_all_varying")
-    parser.add_argument("--transport-dir", type=Path, help="Explicit local TSV.gz directory; required for this unpublished draft.")
+    parser.add_argument("--transport-dir", type=Path, help="Optional explicit local TSV.gz directory; otherwise use authorized immutable remote files.")
     args = parser.parse_args()
     dataset = load_dataset(args.metadata, args.transport_dir)
     count = sum(1 for _ in records(dataset, args.subset))

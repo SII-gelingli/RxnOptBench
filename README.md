@@ -1,11 +1,5 @@
 # RxnOptBench
 
-**Camera-ready code preview — `v0.2.6-code-preview`.** The new data package
-and matching final Croissant have not been released. This preview contains code,
-prompts, synthetic examples and explicitly draft metadata. The existing
-[`v0.2.5-eval-only`](https://github.com/SII-gelingli/RxnOptBench/tree/v0.2.5-eval-only)
-release remains available with its matching data and instructions.
-
 **RxnOptBench: Benchmarking LLMs for Reaction-Condition Optimization in Organic Methodology**
 
 Lingli Ge, Yubin Wang, Junyuan Gao, Jiahe Song, Jiaxing Sun, Boyu Zhu,
@@ -18,22 +12,22 @@ in methodology screening tables. The frozen benchmark has eight test subsets,
 This repository contains the authors' available extraction stages and input
 interfaces, benchmark-construction code, deterministic evaluators, six prompt
 templates, parsers, validators and human-review interface. Real benchmark
-records, 777 retained final reviewed tables from sources represented in the
+records, public field exports of 777 final reviewed tables from sources represented in the
 final benchmark, model outputs and data-derived
-examples are prepared for separate distribution through the
+examples are hosted separately through the
 [Hugging Face dataset](https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final)
-under its noncommercial research terms and access agreement. The enlarged data
-package has not yet been published; the dataset page currently serves the older
-evaluation-only release. Source-rights scope for the new package remains under review.
+under its noncommercial research terms and access agreement. Use the matching
+`v0.2.6-target-policy` release; the earlier `v0.2.5-eval-only` tag remains available.
 
 Original software, prompt templates, documentation and invented examples are
 MIT-licensed. Installed dependencies retain their own licenses; see
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and
 [LICENSE_SCOPE.md](LICENSE_SCOPE.md).
 [UPSTREAM_LICENSE_NOTICES.md](UPSTREAM_LICENSE_NOTICES.md) explains the separate
-rights in literature-derived material. The data-host candidate includes public
-source-category evidence; it does not claim project-wide clearance or settle
-unknown historical acquisition/API hosting and remaining SI/intermediate-note scope.
+rights in literature-derived material. The data host includes source attribution, category-level policy evidence and
+modification notices. The released support records omit freeform source
+explanations; retained fields preserve their original values. Historical access
+contracts and processing details are not independently certified.
 
 ## Files
 
@@ -63,13 +57,7 @@ python3 evaluation/evaluate_fill_in_blank.py \
 The toy MC accuracy/score are 0.5/0.7; toy FIB Hit, Score | Hit and Strict are
 2/3, 0.75 and 1/3. These are invented examples, not experimental results.
 
-## Download and validate the matching data package (pending)
-
-**Do not use the current HF `main` snapshot with this preview validator.** It
-serves the older evaluation-only release and lacks the enlarged artifact files.
-The following commands are for the matching `v0.2.6-target-policy` data release
-after it is published; that data revision is not currently available. To use the
-existing release now, follow the linked `v0.2.5-eval-only` instructions instead.
+## Download and validate the gated artifact
 
 Accept the agreement on the dataset page using your own Hugging Face account,
 then authenticate the official CLI locally. Keep credentials out of source
@@ -127,10 +115,13 @@ maintenance explanation. Current-policy scores are computed separately.
 ## Construction and extraction boundary
 
 See [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md). The original builders
-and a portable adapter are included. The candidate retains 777 final reviewed
-files from final-benchmark source articles; 107 files from 42 other source
+and a portable adapter are included. The release contains public field exports
+of 777 final reviewed files from final-benchmark source articles; 107 files from 42 other source
 articles are omitted. This source-level selection does not establish that every
-retained table contributed to a final question. Automatic extraction drafts,
+retained table contributed to a final question. Explanatory and structural
+description fields are omitted from these support records; original/public
+hashes and omitted field paths are recorded in `reviewed_data/`. This export
+does not alter the final QA or archived predictions. Automatic extraction drafts,
 caches and editing history are also omitted.
 
 An earlier offline reconstruction and comparison used the full 884-file
@@ -145,3 +136,18 @@ inference/model-specific postprocessing, weights, third-party source PDFs,
 SI and source-page images. Available stages consume lawfully supplied inputs
 and structured external OCSR JSON. API-dependent stages require user-provided
 services; running `--stages all` is not a self-contained raw-PDF reconstruction.
+
+## Croissant metadata
+
+[`metadata/croissant.json`](metadata/croissant.json) includes core and RAI metadata
+and pins all 24 resources to immutable data revision
+`b80dfbc61d338961d46034df67aca36f5b1bcf17`. Accept the HF agreement and log in
+locally before using the portable loader:
+
+```bash
+python3 -m pip install -r metadata/requirements.txt
+python3 metadata/load_croissant.py metadata/croissant.json --subset multiple_choice_all_varying
+```
+
+Fresh authorized downloads, hashes, all eight lossless record sets and nested
+schemas passed validation; see `metadata/validation_authenticated.json`.

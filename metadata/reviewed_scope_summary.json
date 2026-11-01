@@ -13,5 +13,10 @@
   "exact_final_question_regeneration_claimed": false,
   "evaluation_questions_changed_by_scope_update": false,
   "scores_changed_by_scope_update": false,
-  "license_clearance_inferred_from_source_relevance": false
+  "license_clearance_inferred_from_source_relevance": false,
+  "public_support_export": true,
+  "public_reviewed_manifest_sha256": "fd0c7d101ccb07925790bbcaeea35d1acc00ef51ca540c3a218b57964a837717",
+  "explanatory_fields_omitted": true,
+  "historical_bridge_hash_scope": "original_complete_internal_records_not_current_public_exports",
+  "qa_and_scores_changed_by_public_export": false
 }

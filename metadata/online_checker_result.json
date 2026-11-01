@@ -1,0 +1,21 @@
+{
+  "checked_at_utc": "2026-11-01T14:09:23.236076+00:00",
+  "descriptor_sha256": "86cdd2e9a08e2277bc1203be544e0779d590b0d3457c843ef61fdc31b78248ff",
+  "data_revision": "b80dfbc61d338961d46034df67aca36f5b1bcf17",
+  "checker_space": "https://huggingface.co/spaces/JoaquinVanschoren/croissant-checker",
+  "checker_api": "https://joaquinvanschoren-croissant-checker.hf.space/gradio_api/call/on_validate",
+  "authentication": "anonymous; no user credentials supplied",
+  "submitted_material": "public Croissant metadata JSON only",
+  "json_format": "PASS",
+  "croissant_core_schema": "PASS",
+  "required_responsible_ai_fields": "PASS",
+  "anonymous_record_generation": {
+    "status": "WARNING_EXPECTED_GATED_HTTP_401",
+    "first_record_set": "fill_in_blank_all_blank",
+    "explanation": "The anonymous third-party checker has not accepted the repository research-use gate. Its data download received HTTP 401. This does not test authorized record loading and is not a schema or RAI failure."
+  },
+  "all_checks_passed": false,
+  "full_checker_report": "online_checker_report.md",
+  "descriptor_modified": false,
+  "qa_or_scoring_modified": false
+}

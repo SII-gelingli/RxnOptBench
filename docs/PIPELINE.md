@@ -59,10 +59,10 @@ by `--stages all`.
 The human-review gate follows schema conversion and input curation. Annotators
 can accept, reject, skip, or edit a table while the selected source JSON
 remains read-only. Saved edited copies override the corresponding source table
-when building the final reviewed snapshot. The local publication candidate
-retains 777 final reviewed tables from source articles represented in the final
-benchmark under `reviewed_data/tables/`, with their original per-file hashes in
-`reviewed_data/manifest.json`. It omits 107 files from 42 other source articles.
+when building the final reviewed snapshot. The release
+contains public field exports of 777 final reviewed tables from source articles represented in the final
+benchmark under `reviewed_data/tables/`, with public per-file hashes in
+`reviewed_data/manifest.json` and original/public hashes in the export manifest. It omits 107 files from 42 other source articles.
 This source-level subset does not establish a final-question association for
 every retained table or exact reconstruction of the benchmark. Automatic
 extraction drafts, caches, pre-review candidates, status records, saved edited
@@ -88,3 +88,12 @@ reaction objects. The conversion prompt preserves input SMILES and separates
 conversion, selectivity, and yield semantics. Since the VLM stages are
 model-dependent, rerunning them creates candidate outputs rather than a claim
 of byte-identical regeneration of the bundled pre-review snapshot.
+
+## Public support-record field export
+
+The 777 support records omit freeform explanations and structural descriptions;
+all retained values and entry order are preserved. `reviewed_data/README.md`
+and `public_export_manifest.json` list the exact boundary and original/public
+hashes. Some omitted notes carried additional context; this export does not
+reconstruct that context or claim exact final-QA regeneration. Final questions,
+labels, archived predictions and evaluation rules are unchanged.

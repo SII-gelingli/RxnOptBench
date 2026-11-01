@@ -1,0 +1,16 @@
+{
+  "repo": "SII-gelingli/RxnOptBench-final",
+  "data_revision": "b80dfbc61d338961d46034df67aca36f5b1bcf17",
+  "metadata_revision": "e950658300d1564069652c452e1b44603cc3e94c",
+  "tag": "v0.2.6-target-policy",
+  "croissant_sha256": "86cdd2e9a08e2277bc1203be544e0779d590b0d3457c843ef61fdc31b78248ff",
+  "version": "0.2.6-target-policy",
+  "questions": 4773,
+  "record_sets": 8,
+  "reviewed_public_field_exports": 777,
+  "original_reviewed_notes_included": false,
+  "qa_or_scoring_changed_by_publication": false,
+  "remote_artifact_hash_and_evaluation_validation": "PASS",
+  "online_checker_json_core_rai": "PASS",
+  "online_checker_anonymous_record_loading": "research agreement required; HTTP 401 without authorization"
+}
