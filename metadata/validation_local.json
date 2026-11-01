@@ -1,0 +1,208 @@
+{
+  "status": "pass",
+  "checked_utc": "2026-11-01T11:33:54.835367+00:00",
+  "mode": "local",
+  "metadata_sha256": "5584dc3ce46a6d9610ec5b15218ce0b22f2d00345d4b750badb8b6ad2a8cf0b6",
+  "mlcroissant_version": "1.1.1",
+  "jsonschema_version": "4.26.0",
+  "data_revision": [
+    "main"
+  ],
+  "required_rai_present": {
+    "rai:dataLimitations": true,
+    "rai:dataBiases": true,
+    "rai:personalSensitiveInformation": true,
+    "rai:dataUseCases": true,
+    "rai:dataSocialImpact": true,
+    "rai:hasSyntheticData": true,
+    "prov:wasDerivedFrom": true,
+    "prov:wasGeneratedBy": true
+  },
+  "files": [
+    {
+      "id": "transport/fill_in_blank_all_blank",
+      "sha256": "16cc5cbca5e01f0339795ffcfc45e65aff0a43f3d098b3269663326038e33192",
+      "bytes": 254519
+    },
+    {
+      "id": "jsonl/fill_in_blank_all_blank",
+      "sha256": "d084aeefc0542767206b179ee4ce99c62c34ad10c283b1fdb81c33eeff69a009",
+      "bytes": 3442389
+    },
+    {
+      "id": "native-json/fill_in_blank_all_blank",
+      "sha256": "d071543f2eec8c0c161fa781958ac011b9b0aff91260eb5f71f6953e63657c45",
+      "bytes": 6391286
+    },
+    {
+      "id": "transport/fill_in_blank_all_blank_reference",
+      "sha256": "8350326eb10935bc348faf2ece92f141a40ae1dd00be3958b15eacf7704d4de8",
+      "bytes": 186157
+    },
+    {
+      "id": "jsonl/fill_in_blank_all_blank_reference",
+      "sha256": "af6fa1afea6530baa31c5a077d4ec0d05ace552d592bec9cc959027e34b443ef",
+      "bytes": 2637941
+    },
+    {
+      "id": "native-json/fill_in_blank_all_blank_reference",
+      "sha256": "5bb15b81d3888c4af88dce6ad539d3742924330603828ac0802ec72ab6a0f1cf",
+      "bytes": 5187920
+    },
+    {
+      "id": "transport/multiple_choice_all_varying",
+      "sha256": "390623aab545e599909c4d856f7725a022db694edbc44964ab8b4496f623f94f",
+      "bytes": 232275
+    },
+    {
+      "id": "jsonl/multiple_choice_all_varying",
+      "sha256": "038e5e39196f1e74c06501e8d4504c2ec06e28fb01097cf56d6eb0aad0c43186",
+      "bytes": 3269256
+    },
+    {
+      "id": "native-json/multiple_choice_all_varying",
+      "sha256": "123f3defa47e834276ec5badff973c15e6248475d87ae396f250308687ac11aa",
+      "bytes": 5925881
+    },
+    {
+      "id": "transport/multiple_choice_all_varying_reference",
+      "sha256": "bcea74e5b4688df58608f9008342bcec91920e5f4e811bef63e3c9d6a9fa2a30",
+      "bytes": 171774
+    },
+    {
+      "id": "jsonl/multiple_choice_all_varying_reference",
+      "sha256": "22c85aaf5945acfe396f653bcaff168807b545f149ebecabef64cf0d0a35627f",
+      "bytes": 2569158
+    },
+    {
+      "id": "native-json/multiple_choice_all_varying_reference",
+      "sha256": "21fd64a60a9b07f6bee65542074ef0f5d83d65f091fdc6a3ccb81b33d5862c93",
+      "bytes": 4976901
+    },
+    {
+      "id": "transport/multiple_choice_all_varying_reference_control",
+      "sha256": "5ff59a61bc75a354c9b85cdaff919fddf0435be294778de13e07ba640d1f7591",
+      "bytes": 136652
+    },
+    {
+      "id": "jsonl/multiple_choice_all_varying_reference_control",
+      "sha256": "55d2a0874b1d6ff67a903f3b21f2acfa847d21e7c54b868bc67d9a12d5763f9e",
+      "bytes": 1771823
+    },
+    {
+      "id": "native-json/multiple_choice_all_varying_reference_control",
+      "sha256": "1e0bb5ffacb82f4703e81c4a912ccc4563c244a6132af0fc6c91350154bd43b6",
+      "bytes": 3180654
+    },
+    {
+      "id": "transport/multiple_choice_single_varying",
+      "sha256": "e8ba232fb5938dd9f22399d247afaa50a8fc52487026a6e7e6bf75bffde1ecc5",
+      "bytes": 208777
+    },
+    {
+      "id": "jsonl/multiple_choice_single_varying",
+      "sha256": "5a129250a3cea7de81fc373ad029193ece256e958bb226caa5e0573df40cc7d5",
+      "bytes": 3167763
+    },
+    {
+      "id": "native-json/multiple_choice_single_varying",
+      "sha256": "53b5380245b14057be3a8fc497daf20ddbddd701de95ad83b9694cbdc71b0040",
+      "bytes": 5218859
+    },
+    {
+      "id": "transport/multiple_choice_single_varying_reference",
+      "sha256": "1e72954e687920a1727f2e67c584e9756f17cdf2f5f0163f8e0d348f12564afa",
+      "bytes": 230991
+    },
+    {
+      "id": "jsonl/multiple_choice_single_varying_reference",
+      "sha256": "5ef93bb9b772f4cdb222533a5da0ad55a37e9bd31d1fb0606411b25cfec1e2ae",
+      "bytes": 4586814
+    },
+    {
+      "id": "native-json/multiple_choice_single_varying_reference",
+      "sha256": "af25f74003a05f6e6d261cf38a58a602b50612b4eb58ea37bdf57cc873b1a6e4",
+      "bytes": 8752299
+    },
+    {
+      "id": "transport/multiple_choice_single_varying_reference_control",
+      "sha256": "e67fa4fda738f07552823f714c68a407bbe18014e3bb8b77f240b013ee52f5db",
+      "bytes": 172220
+    },
+    {
+      "id": "jsonl/multiple_choice_single_varying_reference_control",
+      "sha256": "b1f6f6604b65db798508dac0fa26c7dfb11500e344d5cf7385a31d96a26f2e26",
+      "bytes": 2611070
+    },
+    {
+      "id": "native-json/multiple_choice_single_varying_reference_control",
+      "sha256": "896e5b413647a3994c161c2859c8571194343556bd79681cc1d6a271abf24c31",
+      "bytes": 4280807
+    }
+  ],
+  "record_sets": [
+    {
+      "id": "fill_in_blank_all_blank",
+      "records": 552,
+      "lossless_matches": 552,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "fill_in_blank_all_blank_reference",
+      "records": 310,
+      "lossless_matches": 310,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "multiple_choice_all_varying",
+      "records": 552,
+      "lossless_matches": 552,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "multiple_choice_all_varying_reference",
+      "records": 310,
+      "lossless_matches": 310,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "multiple_choice_all_varying_reference_control",
+      "records": 310,
+      "lossless_matches": 310,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "multiple_choice_single_varying",
+      "records": 1039,
+      "lossless_matches": 1039,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "multiple_choice_single_varying_reference",
+      "records": 850,
+      "lossless_matches": 850,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "multiple_choice_single_varying_reference_control",
+      "records": 850,
+      "lossless_matches": 850,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    }
+  ],
+  "authentication": "none; local files mapped explicitly",
+  "static_errors": [],
+  "static_warnings": [
+    "[Metadata(RxnOptBench)] Property \"https://schema.org/datePublished\" is recommended, but does not exist."
+  ],
+  "records_loaded": 4773,
+  "limits": "This checks the official reference loader, complete local record equality, declared RAI presence, and nested structural schema. It does not establish scientific label correctness, source-document licensing, gated-access acceptance by reviewers, or approval by the NeurIPS online validator. Authenticated mode verifies authorized network access; anonymous downloads remain gated. This draft has not undergone remote loading or online checker validation."
+}

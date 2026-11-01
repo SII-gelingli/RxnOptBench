@@ -1,0 +1,17 @@
+{
+  "current_source_relevant_reviewed_records": 777,
+  "final_source_groups": 232,
+  "bridged_final_tables": 416,
+  "final_source_groups_without_reviewed_match": 12,
+  "missing_mappings_fabricated": false,
+  "historical_full_snapshot_construction_experiment": {
+    "reviewed_records": 884,
+    "constructed_questions": 4473,
+    "describes_current_reduced_scope": false
+  },
+  "current_reduced_scope_construction_rerun": false,
+  "exact_final_question_regeneration_claimed": false,
+  "evaluation_questions_changed_by_scope_update": false,
+  "scores_changed_by_scope_update": false,
+  "license_clearance_inferred_from_source_relevance": false
+}

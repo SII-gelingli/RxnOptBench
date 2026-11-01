@@ -1,0 +1,6 @@
+-r base.txt
+torch>=2.4
+transformers>=4.45,<5
+accelerate>=0.34
+vllm>=0.6
+DECIMER-Segmentation

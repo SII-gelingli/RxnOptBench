@@ -1,0 +1,126 @@
+{
+  "is_multi_reactions": "False",
+  "R-info": "",
+  "reactants": [
+    {
+      "content": "",
+      "box_id": "",
+      "Idt": "",
+      "amount": "",
+      "conversion_rate": "",
+      "diastereomeric_ratio": "",
+      "other_info": "",
+      "SMILES": ""
+    }
+  ],
+  "products": [
+    {
+      "content": "",
+      "box_id": "",
+      "Idt": "",
+      "yield_ratio": "",
+      "isolated_yield": "",
+      "conversion_rate": "",
+      "enantiomeric_excess": "",
+      "regioisomeric_ratio": "",
+      "enantiomeric_ratio": "",
+      "alkene_configuration": "",
+      "diastereomeric_ratio": "",
+      "other_info": "",
+      "SMILES": ""
+    }
+  ],
+  "stages": [
+    {
+      "selected_conditions": [],
+      "reagents": [
+        {
+          "content": "",
+          "box_id": "",
+          "Idt": "",
+          "amount": "",
+          "ratio": "",
+          "other_info": "",
+          "SMILES": ""
+        }
+      ],
+      "catalysts": [
+        {
+          "content": "",
+          "box_id": "",
+          "Idt": "",
+          "amount": "",
+          "ratio": "",
+          "other_info": "",
+          "SMILES": ""
+        }
+      ],
+      "solvents": [
+        {
+          "content": "",
+          "box_id": "",
+          "Idt": "",
+          "amount": "",
+          "ratio": "",
+          "other_info": "",
+          "SMILES": ""
+        }
+      ],
+      "indeterminate_mol_idt": [
+        {
+          "content": "",
+          "amount": "",
+          "other_info": ""
+        }
+      ],
+      "ligand": [
+        {
+          "content": "",
+          "box_id": "",
+          "Idt": "",
+          "amount": "",
+          "other_info": "",
+          "SMILES": ""
+        }
+      ],
+      "pressure": "",
+      "reaction_time": "",
+      "reaction_temperature": "",
+      "light_condition": "",
+      "atmosphere": "",
+      "description": "",
+      "PH": "",
+      "speed": "",
+      "vacuum_condition": "",
+      "cooling_heating_condition": "",
+      "current_conditions": {
+        "Anode(+)": "",
+        "Cathode(-)": "",
+        "Electrolyte": "",
+        "Current_Density": "",
+        "Reaction_Type": "",
+        "Main_Mode": "",
+        "Constant_Potential": "",
+        "Constant_Cell_Voltage": "",
+        "Constant_Current": "",
+        "Constant_Quantity": "",
+        "is_variable_current": "",
+        "Alternating_Constant_Frequency": "",
+        "Alternating_Constant_Duty_Cycle": "",
+        "Alternating_Constant_Forward_V": "",
+        "Alternating_Constant_Forward_I": "",
+        "Alternating_Constant_Reverse_V": "",
+        "Alternating_Constant_Reverse_I": "",
+        "Alternating_Variable_Frequency": "",
+        "Alternating_Variable_Cycle": [],
+        "other_info": ""
+      },
+      "scale": "",
+      "indeterminate_descriptions": [
+        {
+          "content": ""
+        }
+      ]
+    }
+  ]
+}

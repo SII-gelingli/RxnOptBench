@@ -1,61 +1,3 @@
-# CROISSANT VALIDATION REPORT
-================================================================================
-## VALIDATION RESULTS
---------------------------------------------------------------------------------
-Starting validation for file: croissant.json
-### JSON Format Validation
-✓
-The file is valid JSON.
-### Croissant Schema Validation
-✓
-The dataset passes Croissant validation.
-### Responsible AI Metadata
-✓
-All required Responsible AI metadata fields are present.
-### Records Generation Test
-?
-Record set 'fill_in_blank_all_blank' failed due to generation error:
-
-```text
-An error occurred during the streaming generation of the dataset, more specifically during the operation Download(transport/fill_in_blank_all_blank)
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.13/site-packages/mlcroissant/_src/operation_graph/execute.py", line 135, in execute_operations_in_streaming
-    result = operation.call(result)
-  File "/usr/local/lib/python3.13/site-packages/mlcroissant/_src/operation_graph/operations/download.py", line 232, in call
-    self._download_from_http(filepath)
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
-  File "/app/validation.py", line 58, in _hf_aware_download
-    return _orig_download_from_http(self, filepath)
-  File "/usr/local/lib/python3.13/site-packages/mlcroissant/_src/operation_graph/operations/download.py", line 191, in _download_from_http
-    response.raise_for_status()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/usr/local/lib/python3.13/site-packages/requests/models.py", line 1028, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/croissant/fill_in_blank_all_blank.tsv.gz
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/app/validation.py", line 145, in validate_records
-    raise result  # re-raise actual error outside timeout
-    ^^^^^^^^^^^^
-  File "/app/validation.py", line 119, in try_generate_record
-    for i, record in enumerate(record_collection):
-                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.13/site-packages/mlcroissant/_src/datasets.py", line 166, in __iter__
-    yield from execute_operations_in_streaming(
-    ...<2 lines>...
-    )
-  File "/usr/local/lib/python3.13/site-packages/mlcroissant/_src/operation_graph/execute.py", line 137, in execute_operations_in_streaming
-    raise GenerationError(
-    ...<2 lines>...
-    ) from e
-mlcroissant._src.core.issues.GenerationError: An error occurred during the streaming generation of the dataset, more specifically during the operation Download(transport/fill_in_blank_all_blank)
-```
-## JSON-LD REFERENCE
-================================================================================
-```json
 {
   "@context": {
     "@language": "en",
@@ -112,14 +54,13 @@ mlcroissant._src.core.issues.GenerationError: An error occurred during the strea
     "replace": "cr:replace",
     "samplingRate": "cr:samplingRate",
     "separator": "cr:separator",
-    "subField": "cr:subField",
-    "@base": "cr_base_iri/"
+    "subField": "cr:subField"
   },
   "@type": "sc:Dataset",
   "name": "RxnOptBench",
-  "description": "A frozen evaluation-only benchmark of 4,773 constructed reaction-condition QA records in eight test subsets, derived from human-reviewed published screening tables. Source experimental measurements are literature-derived. MC and FIB subsets expose different observed candidate supports; archived utility and dr/rr target-direction limitations are documented in the RAI fields and dataset card. Each Croissant record exposes its full original JSON record as lossless UTF-8 Text (json_record) in a derived gzipped TSV, plus searchable identifiers. Decode json_record with a JSON parser to recover nested inputs, candidates, answers, and provenance; record_schema.json documents all nested fields. Identifiers are unique within their subset, not across all eight subsets.",
+  "description": "DRAFT: this candidate has not been published. Distribution URLs using main are intended future locations; main currently serves an earlier release. Local hashes and local-loader validation do not establish remote availability. Public source-category/license evidence has been organized; historical acquisition and API hosting are unknown, and SI/intermediate-expression scope remains unresolved. A local target-policy candidate with 4,773 constructed reaction-condition QA records in eight test subsets, derived from human-reviewed published screening tables. Source experimental measurements are literature-derived. The separate broader candidate contains 777 source-relevant reviewed records from the final 232 source groups; those records are outside these eight RecordSets. Exact final-question regeneration is not claimed. Unverified dr/rr axes are retained as raw metadata and excluded from scoring. Best scores use declared released observational support rather than an unrestricted chemical optimum. Each Croissant record exposes its full candidate JSON record as lossless UTF-8 Text (json_record) in a derived gzipped TSV, plus searchable identifiers. Decode json_record with a JSON parser to recover nested inputs, candidates, answers, and provenance; record_schema.json documents all nested fields. Identifiers are unique within their subset, not across all eight subsets.",
   "url": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final",
-  "version": "0.2.5-eval-only",
+  "version": "0.2.6-target-policy",
   "inLanguage": "en",
   "conformsTo": "http://mlcommons.org/croissant/1.1",
   "isLiveDataset": false,
@@ -181,7 +122,7 @@ mlcroissant._src.core.issues.GenerationError: An error occurred during the strea
     "benchmark",
     "test-only"
   ],
-  "conditionsOfAccess": "Data are licensed under the RxnOptBench Noncommercial Research License v1.0. Download requires a Hugging Face account and acceptance of a lightweight noncommercial research-use agreement; approval is automatic after acceptance. Metadata and MIT evaluation code are publicly available at https://github.com/SII-gelingli/RxnOptBench. The provided load/validation script uses an authorized cached Hugging Face login or HF_TOKEN to download and hash-check transport files, then supplies them to mlcroissant using its standard local mapping API. The reference loader itself does not read HF_TOKEN for arbitrary HTTP FileObjects. Acceptance of the access agreement is still required.",
+  "conditionsOfAccess": "The selected candidate data terms are the RxnOptBench Noncommercial Research License v1.0 for rights the authors hold; code uses MIT. Upstream material retains its original license and permissions; see UPSTREAM_LICENSE_NOTICES.md at the intended data host. This candidate is local and unpublished. Intended access is a Hugging Face account and acceptance of a lightweight noncommercial research-use agreement with automatic approval, as configured for the earlier release at this repository. Public code/metadata live at https://github.com/SII-gelingli/RxnOptBench; their current main revision does not establish availability of this candidate. The provided load/validation script uses an authorized cached Hugging Face login or HF_TOKEN to download and hash-check transport files, then supplies them to mlcroissant using its standard local mapping API. The reference loader itself does not read HF_TOKEN for arbitrary HTTP FileObjects. Acceptance of the access agreement is still required.",
   "citation": {
     "@type": "sc:CreativeWork",
     "name": "RxnOptBench: Benchmarking LLMs for Reaction-Condition Optimization in Organic Methodology",
@@ -244,240 +185,240 @@ mlcroissant._src.core.issues.GenerationError: An error occurred during the strea
       "@id": "transport/fill_in_blank_all_blank",
       "name": "fill_in_blank_all_blank.tsv.gz",
       "description": "Deterministic gzip-compressed TSV transport; json_record is the unchanged original UTF-8 JSON line. Contains exactly the same questions as the frozen native JSON and JSONL.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/croissant/fill_in_blank_all_blank.tsv.gz",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/croissant/fill_in_blank_all_blank.tsv.gz",
       "encodingFormat": "text/tab-separated-values",
-      "sha256": "f01b87c7f6ea09bb17d719a7d5c1bfa99704170cbd7cdbe968df12b4b031e9ed",
-      "contentSize": "236529 B"
+      "sha256": "16cc5cbca5e01f0339795ffcfc45e65aff0a43f3d098b3269663326038e33192",
+      "contentSize": "254519 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "jsonl/fill_in_blank_all_blank",
       "name": "fill_in_blank_all_blank.jsonl",
       "description": "One complete original question per UTF-8 JSON line. Canonical Hugging Face transport format.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/jsonl/fill_in_blank_all_blank.jsonl",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/jsonl/fill_in_blank_all_blank.jsonl",
       "encodingFormat": "application/jsonlines",
-      "sha256": "50176b76538cf3c18bce2cf6e6ea344f22e9a6fd359b6c59dc5cb676cb526d79",
-      "contentSize": "2672753 B"
+      "sha256": "d084aeefc0542767206b179ee4ce99c62c34ad10c283b1fdb81c33eeff69a009",
+      "contentSize": "3442389 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "native-json/fill_in_blank_all_blank",
       "name": "fill_in_blank_all_blank.json",
       "description": "Equivalent native JSON array consumed by the deterministic evaluation scripts.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/original_json/fill_in_blank_all_blank.json",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/original_json/fill_in_blank_all_blank.json",
       "encodingFormat": "application/json",
-      "sha256": "da37bb7245eebd4f56d0d1f9e35751dfd65b6c9c90f07620fb8a138a2a762589",
-      "contentSize": "5145259 B"
+      "sha256": "d071543f2eec8c0c161fa781958ac011b9b0aff91260eb5f71f6953e63657c45",
+      "contentSize": "6391286 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "transport/fill_in_blank_all_blank_reference",
       "name": "fill_in_blank_all_blank_reference.tsv.gz",
       "description": "Deterministic gzip-compressed TSV transport; json_record is the unchanged original UTF-8 JSON line. Contains exactly the same questions as the frozen native JSON and JSONL.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/croissant/fill_in_blank_all_blank_reference.tsv.gz",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/croissant/fill_in_blank_all_blank_reference.tsv.gz",
       "encodingFormat": "text/tab-separated-values",
-      "sha256": "89e43c720366e2afa4ca5b384d4145708bee0bc28ca904cc93ae11032d9f3218",
-      "contentSize": "176113 B"
+      "sha256": "8350326eb10935bc348faf2ece92f141a40ae1dd00be3958b15eacf7704d4de8",
+      "contentSize": "186157 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "jsonl/fill_in_blank_all_blank_reference",
       "name": "fill_in_blank_all_blank_reference.jsonl",
       "description": "One complete original question per UTF-8 JSON line. Canonical Hugging Face transport format.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/jsonl/fill_in_blank_all_blank_reference.jsonl",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/jsonl/fill_in_blank_all_blank_reference.jsonl",
       "encodingFormat": "application/jsonlines",
-      "sha256": "0b60dda962c3f65b6922df36007e2df5af8fbc1011a42b4a54852ce90c37f7f4",
-      "contentSize": "2233588 B"
+      "sha256": "af6fa1afea6530baa31c5a077d4ec0d05ace552d592bec9cc959027e34b443ef",
+      "contentSize": "2637941 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "native-json/fill_in_blank_all_blank_reference",
       "name": "fill_in_blank_all_blank_reference.json",
       "description": "Equivalent native JSON array consumed by the deterministic evaluation scripts.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/original_json/fill_in_blank_all_blank_reference.json",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/original_json/fill_in_blank_all_blank_reference.json",
       "encodingFormat": "application/json",
-      "sha256": "82ddfa388e5980fe8064e1a353f7dc4287f7dbb07bbcbbdc872904e19ff567f7",
-      "contentSize": "4539210 B"
+      "sha256": "5bb15b81d3888c4af88dce6ad539d3742924330603828ac0802ec72ab6a0f1cf",
+      "contentSize": "5187920 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "transport/multiple_choice_all_varying",
       "name": "multiple_choice_all_varying.tsv.gz",
       "description": "Deterministic gzip-compressed TSV transport; json_record is the unchanged original UTF-8 JSON line. Contains exactly the same questions as the frozen native JSON and JSONL.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/croissant/multiple_choice_all_varying.tsv.gz",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/croissant/multiple_choice_all_varying.tsv.gz",
       "encodingFormat": "text/tab-separated-values",
-      "sha256": "933e780ae0b79213f55fe59bcfeff3a103a0229a011a39ae944d6da4ebdc60a6",
-      "contentSize": "218971 B"
+      "sha256": "390623aab545e599909c4d856f7725a022db694edbc44964ab8b4496f623f94f",
+      "contentSize": "232275 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "jsonl/multiple_choice_all_varying",
       "name": "multiple_choice_all_varying.jsonl",
       "description": "One complete original question per UTF-8 JSON line. Canonical Hugging Face transport format.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/jsonl/multiple_choice_all_varying.jsonl",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/jsonl/multiple_choice_all_varying.jsonl",
       "encodingFormat": "application/jsonlines",
-      "sha256": "252cd2bca895fe0b0d2d1a1fd47da2ca69d478da53774cd8977f6a2d28853d58",
-      "contentSize": "2637997 B"
+      "sha256": "038e5e39196f1e74c06501e8d4504c2ec06e28fb01097cf56d6eb0aad0c43186",
+      "contentSize": "3269256 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "native-json/multiple_choice_all_varying",
       "name": "multiple_choice_all_varying.json",
       "description": "Equivalent native JSON array consumed by the deterministic evaluation scripts.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/original_json/multiple_choice_all_varying.json",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/original_json/multiple_choice_all_varying.json",
       "encodingFormat": "application/json",
-      "sha256": "8dae7cb1be7c55b152439dfef33d2c6ce51ea0d7bb4f2a133592c274beb3ba4b",
-      "contentSize": "4875967 B"
+      "sha256": "123f3defa47e834276ec5badff973c15e6248475d87ae396f250308687ac11aa",
+      "contentSize": "5925881 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "transport/multiple_choice_all_varying_reference",
       "name": "multiple_choice_all_varying_reference.tsv.gz",
       "description": "Deterministic gzip-compressed TSV transport; json_record is the unchanged original UTF-8 JSON line. Contains exactly the same questions as the frozen native JSON and JSONL.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/croissant/multiple_choice_all_varying_reference.tsv.gz",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/croissant/multiple_choice_all_varying_reference.tsv.gz",
       "encodingFormat": "text/tab-separated-values",
-      "sha256": "d2fb9adf80204e420bd19546748deb550b76ad8de63e607ce8fae2ecf476da7d",
-      "contentSize": "164453 B"
+      "sha256": "bcea74e5b4688df58608f9008342bcec91920e5f4e811bef63e3c9d6a9fa2a30",
+      "contentSize": "171774 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "jsonl/multiple_choice_all_varying_reference",
       "name": "multiple_choice_all_varying_reference.jsonl",
       "description": "One complete original question per UTF-8 JSON line. Canonical Hugging Face transport format.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/jsonl/multiple_choice_all_varying_reference.jsonl",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/jsonl/multiple_choice_all_varying_reference.jsonl",
       "encodingFormat": "application/jsonlines",
-      "sha256": "795ac2a253ff027a1a9192f07e4a548d7e481e9d38086529023f5a95de6f47f5",
-      "contentSize": "2232135 B"
+      "sha256": "22c85aaf5945acfe396f653bcaff168807b545f149ebecabef64cf0d0a35627f",
+      "contentSize": "2569158 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "native-json/multiple_choice_all_varying_reference",
       "name": "multiple_choice_all_varying_reference.json",
       "description": "Equivalent native JSON array consumed by the deterministic evaluation scripts.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/original_json/multiple_choice_all_varying_reference.json",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/original_json/multiple_choice_all_varying_reference.json",
       "encodingFormat": "application/json",
-      "sha256": "01ad94f5e635cdba96c34f0f5c2484aa65b20c8a527ae22e98c2902989d25019",
-      "contentSize": "4423949 B"
+      "sha256": "21fd64a60a9b07f6bee65542074ef0f5d83d65f091fdc6a3ccb81b33d5862c93",
+      "contentSize": "4976901 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "transport/multiple_choice_all_varying_reference_control",
       "name": "multiple_choice_all_varying_reference_control.tsv.gz",
       "description": "Deterministic gzip-compressed TSV transport; json_record is the unchanged original UTF-8 JSON line. Contains exactly the same questions as the frozen native JSON and JSONL.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/croissant/multiple_choice_all_varying_reference_control.tsv.gz",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/croissant/multiple_choice_all_varying_reference_control.tsv.gz",
       "encodingFormat": "text/tab-separated-values",
-      "sha256": "28ce780f29c0d4bdafce204aa8a49b10c0bab20223e2505e51feebbe70d68f57",
-      "contentSize": "128640 B"
+      "sha256": "5ff59a61bc75a354c9b85cdaff919fddf0435be294778de13e07ba640d1f7591",
+      "contentSize": "136652 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "jsonl/multiple_choice_all_varying_reference_control",
       "name": "multiple_choice_all_varying_reference_control.jsonl",
       "description": "One complete original question per UTF-8 JSON line. Canonical Hugging Face transport format.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/jsonl/multiple_choice_all_varying_reference_control.jsonl",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/jsonl/multiple_choice_all_varying_reference_control.jsonl",
       "encodingFormat": "application/jsonlines",
-      "sha256": "e3728c013474ece7eea5824f53412e0c8793730a297bd01ba052b942e562f69e",
-      "contentSize": "1434800 B"
+      "sha256": "55d2a0874b1d6ff67a903f3b21f2acfa847d21e7c54b868bc67d9a12d5763f9e",
+      "contentSize": "1771823 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "native-json/multiple_choice_all_varying_reference_control",
       "name": "multiple_choice_all_varying_reference_control.json",
       "description": "Equivalent native JSON array consumed by the deterministic evaluation scripts.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/original_json/multiple_choice_all_varying_reference_control.json",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/original_json/multiple_choice_all_varying_reference_control.json",
       "encodingFormat": "application/json",
-      "sha256": "494c639aa427c8eae56e2efe67984cc25f7abe8b398f74081de521369020d789",
-      "contentSize": "2627702 B"
+      "sha256": "1e0bb5ffacb82f4703e81c4a912ccc4563c244a6132af0fc6c91350154bd43b6",
+      "contentSize": "3180654 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "transport/multiple_choice_single_varying",
       "name": "multiple_choice_single_varying.tsv.gz",
       "description": "Deterministic gzip-compressed TSV transport; json_record is the unchanged original UTF-8 JSON line. Contains exactly the same questions as the frozen native JSON and JSONL.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/croissant/multiple_choice_single_varying.tsv.gz",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/croissant/multiple_choice_single_varying.tsv.gz",
       "encodingFormat": "text/tab-separated-values",
-      "sha256": "084d2f9aaf46357201d2c4426ecba29fb51b0c5140bfe4ab227ab1e9aa475cef",
-      "contentSize": "190864 B"
+      "sha256": "e8ba232fb5938dd9f22399d247afaa50a8fc52487026a6e7e6bf75bffde1ecc5",
+      "contentSize": "208777 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "jsonl/multiple_choice_single_varying",
       "name": "multiple_choice_single_varying.jsonl",
       "description": "One complete original question per UTF-8 JSON line. Canonical Hugging Face transport format.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/jsonl/multiple_choice_single_varying.jsonl",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/jsonl/multiple_choice_single_varying.jsonl",
       "encodingFormat": "application/jsonlines",
-      "sha256": "7a8cd539be62add5ee3c2ea1ae0ccccb24298bc977ffac7b1519dbb0c5aebfe2",
-      "contentSize": "2336025 B"
+      "sha256": "5a129250a3cea7de81fc373ad029193ece256e958bb226caa5e0573df40cc7d5",
+      "contentSize": "3167763 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "native-json/multiple_choice_single_varying",
       "name": "multiple_choice_single_varying.json",
       "description": "Equivalent native JSON array consumed by the deterministic evaluation scripts.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/original_json/multiple_choice_single_varying.json",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/original_json/multiple_choice_single_varying.json",
       "encodingFormat": "application/json",
-      "sha256": "4ec31ac22e1ceeeffe7962534da14ad96924446b8a6d9570d314c7b914c0204e",
-      "contentSize": "3993826 B"
+      "sha256": "53b5380245b14057be3a8fc497daf20ddbddd701de95ad83b9694cbdc71b0040",
+      "contentSize": "5218859 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "transport/multiple_choice_single_varying_reference",
       "name": "multiple_choice_single_varying_reference.tsv.gz",
       "description": "Deterministic gzip-compressed TSV transport; json_record is the unchanged original UTF-8 JSON line. Contains exactly the same questions as the frozen native JSON and JSONL.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/croissant/multiple_choice_single_varying_reference.tsv.gz",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/croissant/multiple_choice_single_varying_reference.tsv.gz",
       "encodingFormat": "text/tab-separated-values",
-      "sha256": "ba84867208d5907198a4f0002699a397d0623ef0b20b721e920033dbaa44e051",
-      "contentSize": "218182 B"
+      "sha256": "1e72954e687920a1727f2e67c584e9756f17cdf2f5f0163f8e0d348f12564afa",
+      "contentSize": "230991 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "jsonl/multiple_choice_single_varying_reference",
       "name": "multiple_choice_single_varying_reference.jsonl",
       "description": "One complete original question per UTF-8 JSON line. Canonical Hugging Face transport format.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/jsonl/multiple_choice_single_varying_reference.jsonl",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/jsonl/multiple_choice_single_varying_reference.jsonl",
       "encodingFormat": "application/jsonlines",
-      "sha256": "b741baecad4aee7220e333d7a12f02912066504c89343d63498fe755c236c9ce",
-      "contentSize": "3908166 B"
+      "sha256": "5ef93bb9b772f4cdb222533a5da0ad55a37e9bd31d1fb0606411b25cfec1e2ae",
+      "contentSize": "4586814 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "native-json/multiple_choice_single_varying_reference",
       "name": "multiple_choice_single_varying_reference.json",
       "description": "Equivalent native JSON array consumed by the deterministic evaluation scripts.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/original_json/multiple_choice_single_varying_reference.json",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/original_json/multiple_choice_single_varying_reference.json",
       "encodingFormat": "application/json",
-      "sha256": "4837906f9af12233474e2a08b77f9b8a87cf9f9da890b566803ab60b95ca8569",
-      "contentSize": "7754018 B"
+      "sha256": "af25f74003a05f6e6d261cf38a58a602b50612b4eb58ea37bdf57cc873b1a6e4",
+      "contentSize": "8752299 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "transport/multiple_choice_single_varying_reference_control",
       "name": "multiple_choice_single_varying_reference_control.tsv.gz",
       "description": "Deterministic gzip-compressed TSV transport; json_record is the unchanged original UTF-8 JSON line. Contains exactly the same questions as the frozen native JSON and JSONL.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/croissant/multiple_choice_single_varying_reference_control.tsv.gz",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/croissant/multiple_choice_single_varying_reference_control.tsv.gz",
       "encodingFormat": "text/tab-separated-values",
-      "sha256": "a7d7984fb5af22d37deb8021f02d503f74aab763033f181e6b3688184abbd2ab",
-      "contentSize": "156893 B"
+      "sha256": "e67fa4fda738f07552823f714c68a407bbe18014e3bb8b77f240b013ee52f5db",
+      "contentSize": "172220 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "jsonl/multiple_choice_single_varying_reference_control",
       "name": "multiple_choice_single_varying_reference_control.jsonl",
       "description": "One complete original question per UTF-8 JSON line. Canonical Hugging Face transport format.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/jsonl/multiple_choice_single_varying_reference_control.jsonl",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/jsonl/multiple_choice_single_varying_reference_control.jsonl",
       "encodingFormat": "application/jsonlines",
-      "sha256": "7b2f58c484a42ecd5aff968dded18250262ac9c329e67bd319678d42b515676e",
-      "contentSize": "1932423 B"
+      "sha256": "b1f6f6604b65db798508dac0fa26c7dfb11500e344d5cf7385a31d96a26f2e26",
+      "contentSize": "2611070 B"
     },
     {
       "@type": "cr:FileObject",
       "@id": "native-json/multiple_choice_single_varying_reference_control",
       "name": "multiple_choice_single_varying_reference_control.json",
       "description": "Equivalent native JSON array consumed by the deterministic evaluation scripts.",
-      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/d93d99cc3d51a8fab77ba1b2cb14fc839248c447/data/original_json/multiple_choice_single_varying_reference_control.json",
+      "contentUrl": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/resolve/main/data/original_json/multiple_choice_single_varying_reference_control.json",
       "encodingFormat": "application/json",
-      "sha256": "32bc689efa2b99b60410d7293963840e80f19ef6330072fa95a24e724e4bc19f",
-      "contentSize": "3282527 B"
+      "sha256": "896e5b413647a3994c161c2859c8571194343556bd79681cc1d6a271abf24c31",
+      "contentSize": "4280807 B"
     }
   ],
   "recordSet": [
@@ -485,7 +426,7 @@ mlcroissant._src.core.issues.GenerationError: An error occurred during the strea
       "@type": "cr:RecordSet",
       "@id": "fill_in_blank_all_blank",
       "name": "fill_in_blank_all_blank",
-      "description": "Frozen test subset, 552 questions. id is unique only within this RecordSet. Full nested record schema: https://github.com/SII-gelingli/RxnOptBench/blob/main/metadata/record_schema.json#/$defs/fill_in_blank_all_blank. Parse json_record as JSON before model prompting or evaluation.",
+      "description": "Local candidate test subset, 552 questions. id is unique only within this RecordSet. The matching local record_schema.json documents nested fields; the public main schema may describe an earlier version until publication. Parse json_record as JSON before model prompting or evaluation.",
       "key": {
         "@id": "fill_in_blank_all_blank/id"
       },
@@ -556,7 +497,7 @@ mlcroissant._src.core.issues.GenerationError: An error occurred during the strea
       "@type": "cr:RecordSet",
       "@id": "fill_in_blank_all_blank_reference",
       "name": "fill_in_blank_all_blank_reference",
-      "description": "Frozen test subset, 310 questions. id is unique only within this RecordSet. Full nested record schema: https://github.com/SII-gelingli/RxnOptBench/blob/main/metadata/record_schema.json#/$defs/fill_in_blank_all_blank_reference. Parse json_record as JSON before model prompting or evaluation.",
+      "description": "Local candidate test subset, 310 questions. id is unique only within this RecordSet. The matching local record_schema.json documents nested fields; the public main schema may describe an earlier version until publication. Parse json_record as JSON before model prompting or evaluation.",
       "key": {
         "@id": "fill_in_blank_all_blank_reference/id"
       },
@@ -627,7 +568,7 @@ mlcroissant._src.core.issues.GenerationError: An error occurred during the strea
       "@type": "cr:RecordSet",
       "@id": "multiple_choice_all_varying",
       "name": "multiple_choice_all_varying",
-      "description": "Frozen test subset, 552 questions. id is unique only within this RecordSet. Full nested record schema: https://github.com/SII-gelingli/RxnOptBench/blob/main/metadata/record_schema.json#/$defs/multiple_choice_all_varying. Parse json_record as JSON before model prompting or evaluation.",
+      "description": "Local candidate test subset, 552 questions. id is unique only within this RecordSet. The matching local record_schema.json documents nested fields; the public main schema may describe an earlier version until publication. Parse json_record as JSON before model prompting or evaluation.",
       "key": {
         "@id": "multiple_choice_all_varying/id"
       },
@@ -698,7 +639,7 @@ mlcroissant._src.core.issues.GenerationError: An error occurred during the strea
       "@type": "cr:RecordSet",
       "@id": "multiple_choice_all_varying_reference",
       "name": "multiple_choice_all_varying_reference",
-      "description": "Frozen test subset, 310 questions. id is unique only within this RecordSet. Full nested record schema: https://github.com/SII-gelingli/RxnOptBench/blob/main/metadata/record_schema.json#/$defs/multiple_choice_all_varying_reference. Parse json_record as JSON before model prompting or evaluation.",
+      "description": "Local candidate test subset, 310 questions. id is unique only within this RecordSet. The matching local record_schema.json documents nested fields; the public main schema may describe an earlier version until publication. Parse json_record as JSON before model prompting or evaluation.",
       "key": {
         "@id": "multiple_choice_all_varying_reference/id"
       },
@@ -769,7 +710,7 @@ mlcroissant._src.core.issues.GenerationError: An error occurred during the strea
       "@type": "cr:RecordSet",
       "@id": "multiple_choice_all_varying_reference_control",
       "name": "multiple_choice_all_varying_reference_control",
-      "description": "Frozen test subset, 310 questions. id is unique only within this RecordSet. Full nested record schema: https://github.com/SII-gelingli/RxnOptBench/blob/main/metadata/record_schema.json#/$defs/multiple_choice_all_varying_reference_control. Parse json_record as JSON before model prompting or evaluation.",
+      "description": "Local candidate test subset, 310 questions. id is unique only within this RecordSet. The matching local record_schema.json documents nested fields; the public main schema may describe an earlier version until publication. Parse json_record as JSON before model prompting or evaluation.",
       "key": {
         "@id": "multiple_choice_all_varying_reference_control/id"
       },
@@ -840,7 +781,7 @@ mlcroissant._src.core.issues.GenerationError: An error occurred during the strea
       "@type": "cr:RecordSet",
       "@id": "multiple_choice_single_varying",
       "name": "multiple_choice_single_varying",
-      "description": "Frozen test subset, 1039 questions. id is unique only within this RecordSet. Full nested record schema: https://github.com/SII-gelingli/RxnOptBench/blob/main/metadata/record_schema.json#/$defs/multiple_choice_single_varying. Parse json_record as JSON before model prompting or evaluation.",
+      "description": "Local candidate test subset, 1039 questions. id is unique only within this RecordSet. The matching local record_schema.json documents nested fields; the public main schema may describe an earlier version until publication. Parse json_record as JSON before model prompting or evaluation.",
       "key": {
         "@id": "multiple_choice_single_varying/id"
       },
@@ -911,7 +852,7 @@ mlcroissant._src.core.issues.GenerationError: An error occurred during the strea
       "@type": "cr:RecordSet",
       "@id": "multiple_choice_single_varying_reference",
       "name": "multiple_choice_single_varying_reference",
-      "description": "Frozen test subset, 850 questions. id is unique only within this RecordSet. Full nested record schema: https://github.com/SII-gelingli/RxnOptBench/blob/main/metadata/record_schema.json#/$defs/multiple_choice_single_varying_reference. Parse json_record as JSON before model prompting or evaluation.",
+      "description": "Local candidate test subset, 850 questions. id is unique only within this RecordSet. The matching local record_schema.json documents nested fields; the public main schema may describe an earlier version until publication. Parse json_record as JSON before model prompting or evaluation.",
       "key": {
         "@id": "multiple_choice_single_varying_reference/id"
       },
@@ -982,7 +923,7 @@ mlcroissant._src.core.issues.GenerationError: An error occurred during the strea
       "@type": "cr:RecordSet",
       "@id": "multiple_choice_single_varying_reference_control",
       "name": "multiple_choice_single_varying_reference_control",
-      "description": "Frozen test subset, 850 questions. id is unique only within this RecordSet. Full nested record schema: https://github.com/SII-gelingli/RxnOptBench/blob/main/metadata/record_schema.json#/$defs/multiple_choice_single_varying_reference_control. Parse json_record as JSON before model prompting or evaluation.",
+      "description": "Local candidate test subset, 850 questions. id is unique only within this RecordSet. The matching local record_schema.json documents nested fields; the public main schema may describe an earlier version until publication. Parse json_record as JSON before model prompting or evaluation.",
       "key": {
         "@id": "multiple_choice_single_varying_reference_control/id"
       },
@@ -1051,64 +992,65 @@ mlcroissant._src.core.issues.GenerationError: An error occurred during the strea
     }
   ],
   "rai:dataLimitations": [
-    "The benchmark measures selection among candidates derived from disclosed literature screening tables. A best answer is best within a question's observed-row support under the declared utility; it is not a global optimum over chemical space. The release is not validated for direct wet-lab guidance, autonomous experimentation, safety or cost assessment, or open-ended synthesis planning.",
-    "Fill-in-the-blank candidate values are individually source-derived, but their Cartesian product contains unobserved joint tuples. A structurally valid tuple that does not match an observed source-table row is a non-Hit outside measured support, not a chemically invalid reaction or a measured failure. Score conditioned on Hit excludes these unobserved tuples.",
-    "The frozen headline utility includes archived parsed dr/rr factors normalized row by row toward major:minor. This can discard target-isomer identity. Numeric product labels inside ratio strings also require careful parsing. Complete target-aware re-adjudication of every archived label has not been established; this release must not be described as fully target-aware relabelled data. The paper separately discloses a dr/rr-removal sensitivity audit and a maintenance parser correction.",
-    "The public evaluators deterministically score supplied predictions on the frozen test files. This does not reproduce historical model generations or establish invariance across hosted model endpoints, backend updates, decoding configurations, or time. Frozen reported paper aggregates and later scoring or repeated-call audits are distinct results.",
-    "The paper's source sampling frame is papers first published in 2025 across 16 selected journals. Expert verification checked extracted chemical records against source PDFs. This temporal restriction reduces but does not eliminate training contamination; model training cutoffs and source exposure are not fully observable.",
-    "This release contains only the final human-reviewed test set, deterministic evaluators, and minimal usage examples and documentation. It does not include raw publisher documents or images, the extraction or question-construction pipeline, review tooling, inference runners, or archived model outputs. It therefore supports fixed-test-set evaluation rather than reconstruction from raw PDFs.",
-    "Frozen meta.doi fields are source-identifier strings, not a normalized DOI registry. The MC-all file contains 552 parent-table identifiers and 236 case-sensitive raw source strings; four case-variant groups reduce this to 232 case-insensitive identifiers, matching the paper's article count. This identifier audit does not newly resolve every identifier through a DOI registry or establish publisher permissions. Frozen source strings are retained."
+    "The benchmark measures selection among candidates derived from disclosed literature screening tables. A best answer is best within the explicitly declared released observational support under the utility, not a global optimum over chemical space. No direct wet-lab guidance, autonomous experimentation, safety/cost assessment, or open-ended synthesis ability is validated.",
+    "The current candidate retains 4,773 questions in eight subsets and 552 parent tables. Their union represents 4,768 distinct released observed rows, whereas the paper describes 5,451 source-table entries; 298 parent tables have all reported source rows represented and 254 do not. global_best_scope is all_released_observations_for_parent_table. A best label does not certify the optimum over unavailable original rows. Individual MC and FIB questions expose different observed supports.",
+    "The fixed-target dr/rr policy requires source-identified components, a target fixed across the table, and a human-verified component-to-target mapping. No such independent mapping ledger was found in the current workspace; the author confirmed there are no additional records to use. All 65 observed parent-table/axis combinations therefore have status exclude_unverified. Their original parsed dr/rr observations remain in raw_observed_scores or raw_observed_score, while dr/rr values in the score-bearing structure are null and do not affect utility or gold labels. No major:minor normalization is used for these excluded axes. Other existing score factors retain their declared treatment. This is a conservative exclusion policy, not a claim that target mappings have been verified.",
+    "Fill-in-the-blank candidate values are individually source-derived, but their Cartesian product contains unobserved joint tuples. A structurally valid tuple that does not match a released observed row is a non-Hit outside measured support, not a chemically invalid reaction or a measured failure. Score conditioned on Hit excludes those unobserved tuples.",
+    "Question inputs, candidate indices, and reference/control contexts are preserved for rescoring archived predictions. Gold labels and relative scores may change under the corrected policy. Some reference rows become best after exclusion, and a small number of question variants contain ties across all options; unchanged contexts are not evidence that the corrected optimum was withheld. Reference rows and candidate rows are disjoint by source-row identity, which does not guarantee distinct full condition tuples when different source rows repeat the same conditions. The local audit reports affected items separately. Historical generations were not rerun under altered prompts.",
+    "Paired reference/control subsets match candidate sets, but their released option order differs for many items. Historical provider-input ordering has not been independently verified from complete prompt-order logs. These paired comparisons therefore do not isolate a causal effect of adding reference outcomes; candidate-set matching must not be described as complete prompt identity apart from the reference field.",
+    "Deterministic rescoring of retained model predictions does not reproduce historical hosted-model generations or establish invariance across endpoint versions, backends, decoding settings, or time. Submitted historical aggregates and corrected-policy results are separately versioned and must not be interchanged.",
+    "Sources are recent organic-methodology literature across 16 selected journals, including publisher-confirmed first publications in 2026. They must not be described as exclusively first published in 2025. A Crossref year can reflect a later issue date rather than first online publication; not all records with a 2026 registry date are asserted to be 2026 first publications. Expert review compared accepted chemical records with source material. Source exposure and model training cutoffs are not fully observable; absence of training contamination has not been established.",
+    "This Croissant file describes only the eight evaluation subsets. The current broader candidate separately inventories available construction/evaluation code, six task prompts, 777 reviewed records conservatively limited to the final 232 source groups, review tooling, validators, and archived model outputs. Those files are not additional Croissant RecordSets here. The retained bridge covers 416 final tables; 12 final source groups have no matching reviewed record and are not filled with invented mappings. Unreleased molecular-recognition components and their model-specific postprocessing, model weights, publisher PDFs, and source images are excluded. A historical construction experiment produced 4,473 questions from an earlier full 884-record review snapshot. That experiment does not describe the current 777-record scope: construction has not been rerun for the reduced snapshot, and exact regeneration of the final 4,773 questions is not claimed. Exact review-snapshot-to-final-question lineage remains incomplete; complete final-dataset or raw-PDF-to-benchmark regeneration is not established.",
+    "meta.doi contains frozen source-identifier strings. The MC-all file has 552 parent tables and 236 case-sensitive raw source strings; four case-variant groups reduce this to 232 case-insensitive source groups. A separate public bibliographic audit matched their 232 DOI identifiers to Crossref. Frozen strings remain unchanged. Registry matching establishes identity, not permission to redistribute source material.",
+    "Public source-category/license evidence has been organized for 232 final-source DOIs across six publisher families. The HF candidate metadata/source_rights/ inventory distinguishes article and SI evidence, conditional routes and unknown scope; it does not declare project-wide clearance. The current reviewed-record scope is limited to 777 records associated with those final source groups. This source relevance filter does not establish item-level license clearance or resolve expression in explanatory notes. Historical acquisition dates, institutional subscription details and API hosting are unknown. Actual source-file correspondence and some SI/third-party scope remain unresolved. UPSTREAM_LICENSE_NOTICES.md explains that the authors' data terms grant only their own rights and do not reduce permissions independently granted by upstream licenses."
   ],
   "rai:dataBiases": [
-    "Publication and narrative-selection bias affect which experiments are disclosed: methodology tables are curated evidence supporting a paper rather than complete optimization histories. Successful, interesting, and publishable transformations and selected comparison rows may be overrepresented. The benchmark uses the disclosed rows' reported outcomes and does not claim to recover undisclosed experimental histories.",
-    "Venue selection, the 2025 sampling frame, extraction feasibility, and human curation create uneven coverage of reaction classes, substrate families, catalysts, condition fields, and table formats. Tables that cannot be reliably structured or lack usable reaction or outcome information are underrepresented.",
-    "Paired precedent tasks programmatically select and expose lower- or middle-performing observed rows while withholding best rows. This constructed context distribution is part of the task design and need not match the information available to a chemist conducting an experiment.",
-    "Relative aggregate utility emphasizes reported yield and available stereoselectivity terms. Missing selectivity factors, archived major:minor dr/rr normalization, parsing choices, and source reporting conventions can affect labels and answer rankings. The utility does not represent every chemical objective, preferred target isomer, safety constraint, or cost preference."
+    "Methodology papers disclose curated evidence supporting a narrative rather than complete optimization histories. Successful, interesting, or publishable transformations and selected comparison rows may be overrepresented. This benchmark cannot recover undisclosed experiments.",
+    "The selected journals, recent-literature sampling frame, extraction feasibility, and human curation produce uneven coverage of reaction classes, substrates, catalysts, condition fields, and table formats. Tables that could not be structured reliably or lacked usable reaction/outcome information are underrepresented.",
+    "Reference/control contexts were constructed using the historical utility and retained unchanged when labels were corrected. Their context-selection distribution need not match a chemist's available information. Corrected-optimal reference rows, repeated condition tuples across distinct source rows, all-option ties, and unmatched candidate orders are reported as limitations rather than evidence of a causal reference benefit.",
+    "The aggregate utility prioritizes reported yield and retained selectivity factors. Missing factors, source reporting conventions, and the conservative exclusion of unverified dr/rr axes can affect rankings. It does not encode every target-isomer preference, safety constraint, cost, or chemical objective."
   ],
-  "rai:personalSensitiveInformation": "The test records describe chemical reactions, conditions, reported outcomes, and source identifiers. No personal, demographic, medical, political, or other human-sensitive attributes are intentionally collected as benchmark features. Public author and maintainer information appears in dataset documentation. The paper reports only aggregate information about six paid chemistry interns who performed verification; individual annotator identities are not released as test-set attributes.",
+  "rai:personalSensitiveInformation": "Test records describe chemical reactions, conditions, outcomes, and source identifiers. No personal, demographic, medical, political, or other human-sensitive attributes are intentionally collected as benchmark features. Public author information appears in documentation. The paper reports aggregate information about six paid chemistry interns; individual annotator identities are not test-set attributes.",
   "rai:dataUseCases": [
-    "Intended use: offline testing and comparison of reaction-condition recommendation systems on a fixed, source-derived candidate space, including single-axis versus joint-condition selection and precedent versus no-precedent ablations. Report MC Accuracy and relative Score, and distinguish FIB observed-row Hit, Strict Accuracy, and Score conditioned on Hit.",
-    "The construct is comparative selection of better disclosed conditions for the same reaction, supported by human-verified matched source-table rows with experimentally reported outcomes. It is conditional on the disclosed candidates and the declared utility, not a measure of unrestricted optimization ability or laboratory readiness.",
-    "The provided split is test-only. Training or fine-tuning on these records compromises evaluation on the same questions; no disjoint training/validation split or established fine-tuning benefit is provided. Direct wet-lab deployment, autonomous experimentation, safety certification, and inference of outcomes for unobserved condition tuples have not been validated."
+    "Offline comparison of reaction-condition recommendation systems within a fixed, source-derived candidate space. Report MC Accuracy/relative Score and distinguish FIB observed-row Hit, Strict Accuracy, and Score conditioned on Hit. State dataset and scoring-policy versions and use subset plus id as the question key.",
+    "The evaluated construct is comparative selection among disclosed conditions for the same reaction, based on source-reviewed rows and reported measurements. It is conditional on released support and the declared utility, not unrestricted chemical optimization or laboratory readiness.",
+    "All eight subsets are test-only. Training or fine-tuning on these records compromises evaluation on them; no disjoint training/validation split or established fine-tuning benefit is supplied. Direct experimental deployment and outcome inference for unobserved tuples have not been validated."
   ],
-  "rai:dataSocialImpact": "The release can support reproducible comparison and diagnosis of chemistry AI systems. Machine-readable aggregation also lowers the effort needed to find and reuse published condition information, creating misuse risk and a risk that offline benchmark scores are mistaken for experimental readiness. Documentation retains source provenance, distinguishes unobserved tuples from measured failures, explains scoring and sampling limitations, and directs users to qualified expert review and independent validation before any experimental use. The selected data policy is the custom RxnOptBench Noncommercial Research License v1.0, with a lightweight research-use download agreement and automatic approval after acceptance. The code uses MIT. The agreement provides accountability and friction rather than proof of safe use or legal clearance.",
+  "rai:dataSocialImpact": "Structured aggregation of published conditions can aid reproducible comparison while reducing the effort needed to retrieve and reuse chemical information. This creates misuse risk and a risk that offline scores are mistaken for experimental readiness. Documentation retains provenance and explains disclosed-row, target-policy and sampling limits. Intended access uses a noncommercial research-use agreement with automatic approval; this provides accountability and friction, not proof of safe use or source rights. The current candidate is unpublished. Public source-category evidence has been organized, while unknown historical acquisition/API-hosting details and unresolved SI and intermediate-expression scope prevent a blanket clearance claim. The earlier repository's access configuration does not certify this candidate's readiness.",
   "rai:hasSyntheticData": true,
-  "rai:dataCollection": "The paper describes manual acquisition of source papers and supporting information through open-access channels or university institutional subscriptions, with local processing and no automated bulk crawling of publisher websites. Its sampling frame is papers first published in 2025. A four-stage semi-automated workflow detects and structures condition-screening tables using visual-language-model extraction and deterministic checks, followed by human verification of each retained table against its source. Reported experimental outcomes are not simulated or newly generated. The hasSyntheticData flag is conservatively true for the programmatically constructed QA layer, including candidate arrangement, masking, reference/control contexts, and computed answer/relative-score annotations; it does not describe the underlying chemical measurements as synthetic.",
+  "rai:dataCollection": "Sources are recent organic-methodology papers and supporting information from 16 selected journals, including publisher-confirmed first publications in 2026. Available code has local PDF/table-processing stages and API-dependent stages. Historical download dates, institutional subscriptions and whether those API services were locally hosted or external are unknown; code capability does not prove historical transmission. Four semi-automated stages detect and structure screening tables, followed by final human verification against source material before question construction. Public source-category/license evidence is inventoried separately, without asserting that all acquisition, processing or redistribution conditions are established. Experimental outcomes are literature-derived, not simulated or newly measured. hasSyntheticData is true only for the programmatically constructed QA layer, including masking, candidate arrangement, context construction and computed annotations.",
   "rai:dataCollectionType": [
     "Document analysis",
     "Secondary Data analysis",
     "Manual Human Curator",
     "Software Collection"
   ],
-  "rai:dataAnnotationProtocol": "Four master's-level and two doctoral-level paid chemistry interns based in mainland China reviewed extracted tables against source PDFs, corrected structured fields, and accepted, rejected, or skipped tables through an internal review interface. Only accepted records entered question construction. The paper reports compensation of RMB 300 per working day for the four master's-level interns and RMB 400 per working day for the two doctoral-level interns. The release makes no claim of independent multiple labels per item or a measured inter-annotator-agreement statistic. Questions and answer sets were subsequently constructed from the reviewed rows under the declared candidate-space and utility rules.",
-  "rai:dataAnnotationPlatform": "Internal per-table expert-review interface described in the paper. The interface implementation and individual review logs are outside this evaluation-only release.",
-  "rai:dataManipulationProtocol": "Programmatic transformations form single-axis and whole-row MC tasks and per-axis-index FIB tasks from reviewed observations, shuffle candidate orders, and form matched precedent/control variants. No additional measured yields or stereoselectivities are invented. FIB exposes recombinations in the prediction space but supplies outcome scores only for observed joint rows. The frozen 0.2.5-eval-only candidate indices and labels are preserved. JSONL files are transport representations of the corresponding native JSON test files. Archived dr/rr normalization and parsing limitations are disclosed in dataLimitations rather than silently presented as resolved.",
-  "rai:dataReleaseMaintenancePlan": "Version 0.2.5-eval-only is a frozen evaluation snapshot. Corrections should be documented in a versioned release with candidate-index and scoring changes distinguished from unchanged historical paper aggregates. Report dataset, provenance, scoring, misuse, or rights concerns to Conghui He at heconghui@pjlab.org.cn, or use the linked GitHub repository issue tracker. Code uses MIT; data uses the custom RxnOptBench Noncommercial Research License v1.0. No maintenance schedule or service guarantee is asserted here.",
+  "rai:dataAnnotationProtocol": "Four master's-level and two doctoral-level paid chemistry interns compared extracted tables with source PDFs, corrected fields, and accepted, rejected, or skipped tables using an internal review interface. The paper reports RMB 300/day for master's-level interns and RMB 400/day for doctoral-level interns. No independent multi-label annotation or inter-annotator-agreement statistic is claimed. General acceptance of a table is distinct from an independently documented dr/rr target-component mapping. No such mapping record was found; unverified dr/rr axes are excluded from scoring and preserved as raw metadata.",
+  "rai:dataAnnotationPlatform": "Internal per-table expert-review interface described in the paper. An available implementation and the current 777 source-relevant reviewed records are inventoried in the broader candidate, outside these eight Croissant evaluation RecordSets. Individual independent dr/rr target-mapping verification is not established.",
+  "rai:dataManipulationProtocol": "The 0.2.6-target-policy candidate preserves question inputs, candidates, indices, source strings, and reference/control contexts from the compatible historical evaluation snapshot. It retains all provided raw observations, nulls unverified score-bearing dr/rr fields, and recomputes effective/relative scores and gold/tie sets under a consistent released-support policy. No measured yields or selectivities are invented. Separate versioned policy, relabel, per-question change, and historical-scoring manifests document the transformation. JSONL and native JSON represent equivalent records; lossless TSV.gz exists solely for standard Croissant-loader compatibility. Archived index-restored predictions are rescored against unchanged retained question inputs. Derived response artifacts and post-hoc index restoration do not independently verify original provider prompt ordering or reproduce provider calls. The separate broader candidate has been conservatively scoped to 777 source-relevant reviewed records without changing the 4,773 evaluation questions or their scores. An earlier 884-record full-snapshot construction experiment yielded 4,473 questions; no reduced-snapshot rerun or exact review-to-final regeneration is asserted.",
   "prov:wasDerivedFrom": [
     {
       "@type": "prov:Entity",
-      "@id": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final/blob/main/README.md#sources-and-provenance",
-      "sc:name": "Published organic-methodology screening tables described in the RxnOptBench paper",
-      "sc:description": "This URI identifies the release documentation of the upstream literature sources, not a separately hosted normalized source dataset. Raw source identifiers and table/row back-pointers are retained in meta.doi, meta.parent_table_id, meta.source_file, and option_source_entries or legal_combinations in the eight native files under data/original_json/. The release does not claim that these raw strings constitute a reconciled DOI registry or redistribute publisher PDFs."
+      "@id": "https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final",
+      "sc:name": "Literature screening-table provenance retained in the local RxnOptBench candidate",
+      "sc:description": "The linked repository is the intended host, currently serving an earlier version; it does not establish that this candidate is online. Frozen source/table/row back-pointers are retained. The HF candidate metadata/source_rights/ records 232 final-source bibliographic/license entries and 102 ACS SI-license entries. These are public-evidence inventories, not blanket source clearance. Publisher PDFs/images are excluded; historical acquisition/API hosting and remaining SI/intermediate-expression scope are unresolved."
     }
   ],
   "prov:wasGeneratedBy": [
     {
       "@type": "prov:Activity",
-      "sc:name": "Literature selection and structured extraction",
-      "sc:description": "Manual source acquisition; local visual-language-model-assisted detection and extraction; deterministic normalization and structural checks. The paper describes 911 candidate tables, 552 retained tables, and 5,451 reviewed row-level reaction records. Acquisition dates, model prompts, and pipeline implementation are not newly invented or included by this metadata patch."
+      "sc:name": "Literature selection, extraction, and final human verification",
+      "sc:description": "Literature acquisition, extraction/normalization, structural checks and final expert review precede question construction. Available stages include local processing and API calls; historical hosting is unknown. The paper describes 911 candidate tables, 552 retained tables and 5,451 source-table entries; the evaluation-question union represents 4,768 distinct observed rows. Public source-category evidence is inventoried; full historical route and actual material-scope clearance is not asserted."
     },
     {
       "@type": "prov:Activity",
-      "sc:name": "Human verification and question construction",
-      "sc:description": "Six compensated chemistry interns compared extracted records with source PDFs and edited, accepted, rejected, or skipped tables. Accepted rows were transformed into MC/FIB questions, reference and control variants, and frozen answer and score annotations. Synthetic content is limited to this constructed task layer; source experimental measurements remain literature-derived. The archived utility's dr/rr target-direction limitations remain disclosed."
+      "sc:name": "Constructed QA layer and fixed-target inclusion policy",
+      "sc:description": "Programmatic construction forms MC/FIB questions and reference/control variants. No independent target-component ledger was available; 65 observed dr/rr table-axis combinations are excluded uniformly from scoring while their raw observations remain. Best/relative values and gold/tie sets are recomputed within declared released support. Existing question inputs are retained for honest archived-output rescoring."
     },
     {
       "@type": "prov:Activity",
-      "sc:name": "Evaluation-only camera-ready packaging",
-      "sc:description": "Preserve the 0.2.5-eval-only human-reviewed test files and matching candidate indices; provide eight JSONL subsets, eight native JSON files, two deterministic evaluation scripts, minimal prediction-schema examples, and documentation. No extraction pipeline, model outputs, publisher documents, or source images are part of the release. Include MIT code terms and the custom RxnOptBench Noncommercial Research License v1.0 data terms. Core Croissant metadata documents the lossless transport, and loader/access verification is recorded separately in validation reports."
+      "sc:name": "Local Croissant packaging and structural validation",
+      "sc:description": "Generate eight deterministic lossless TSV.gz files, native/JSONL hashes, eight structural schemas, and complete core/RAI metadata for the unpublished local candidate. Reference-loader local mapping validates all 4,773 records against native JSON/JSONL. This does not establish remote availability, upstream rights, scientific correctness, or approval of the proposed gate."
     }
-  ],
-  "datePublished": "2026-11-01"
+  ]
 }
-```

@@ -1,0 +1,29 @@
+You are an expert organic chemist. Given the following reaction, choose one candidate index for each required condition category.
+
+### Reaction
+
+**Reactants:**
+{reactants}
+
+**Target Product:**
+{products}
+
+### Constant Conditions
+
+{constant_conditions}
+
+### Candidate Values
+
+{candidate_values}
+
+### Output Format
+
+Respond strictly in the following JSON format (no extra text):
+
+```json
+{{
+{query_keys_json}
+}}
+```
+
+Each value must be a single integer candidate index, not a condition name.

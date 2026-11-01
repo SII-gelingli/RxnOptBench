@@ -1,219 +1,147 @@
 # RxnOptBench
 
+**Camera-ready code preview — `v0.2.6-code-preview`.** The new data package
+and matching final Croissant have not been released. This preview contains code,
+prompts, synthetic examples and explicitly draft metadata. The existing
+[`v0.2.5-eval-only`](https://github.com/SII-gelingli/RxnOptBench/tree/v0.2.5-eval-only)
+release remains available with its matching data and instructions.
+
 **RxnOptBench: Benchmarking LLMs for Reaction-Condition Optimization in Organic Methodology**
 
 Lingli Ge, Yubin Wang, Junyuan Gao, Jiahe Song, Jiaxing Sun, Boyu Zhu,
 Haote Yang, Jingchao Wang, Lixin Ma, Jiang Wu, Yuqiang Li, and Conghui He.
 
-Shanghai Jiao Tong University · Shanghai Innovation Institute ·
-Shanghai Artificial Intelligence Laboratory
+RxnOptBench evaluates reaction-condition selection over alternatives reported
+in methodology screening tables. The frozen benchmark has eight test subsets,
+4,773 questions and 552 parent tables.
 
-RxnOptBench evaluates the selection of reaction conditions from alternatives
-reported in organic-methodology screening tables. The benchmark contains
-4,773 questions derived from 552 parent tables in 232 papers, organized into
-eight multiple-choice (MC) and fill-in-the-blank (FIB) subsets. Its paired
-questions evaluate condition selection with and without experimental
-precedents.
+This repository contains the authors' available extraction stages and input
+interfaces, benchmark-construction code, deterministic evaluators, six prompt
+templates, parsers, validators and human-review interface. Real benchmark
+records, 777 retained final reviewed tables from sources represented in the
+final benchmark, model outputs and data-derived
+examples are prepared for separate distribution through the
+[Hugging Face dataset](https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final)
+under its noncommercial research terms and access agreement. The enlarged data
+package has not yet been published; the dataset page currently serves the older
+evaluation-only release. Source-rights scope for the new package remains under review.
 
-This repository contains the deterministic evaluation scripts and fully
-synthetic examples. The benchmark records and their prediction-format
-examples are distributed separately through the
-[Hugging Face dataset repository](https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final),
-for non-commercial research use under its separate dataset terms and access
-agreement. The code, documentation, and synthetic examples in this repository
-are available under the [MIT License](LICENSE). See
-[LICENSE_SCOPE.md](LICENSE_SCOPE.md) for the code/data boundary.
+Original software, prompt templates, documentation and invented examples are
+MIT-licensed. Installed dependencies retain their own licenses; see
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and
+[LICENSE_SCOPE.md](LICENSE_SCOPE.md).
+[UPSTREAM_LICENSE_NOTICES.md](UPSTREAM_LICENSE_NOTICES.md) explains the separate
+rights in literature-derived material. The data-host candidate includes public
+source-category evidence; it does not claim project-wide clearance or settle
+unknown historical acquisition/API hosting and remaining SI/intermediate-note scope.
 
-## Contents and scope
+## Files
 
-```text
-evaluation/           Unmodified standalone MC and FIB evaluators
-examples/synthetic/  Invented inputs and predictions for a runnable demo
-CITATION.cff         Author list and repository citation metadata
-```
+| Path | Contents |
+|---|---|
+| `evaluation/` | Standalone MC/FIB evaluators and archived construction helper |
+| `code/` | Available extraction stages, question builders, inference/parser and review tool |
+| `prompts/` | Six prompt templates; controls reuse the corresponding no-reference template |
+| `scripts/` | Offline integrity/prompt/output validator, policy relabeler and construction adapter |
+| `examples/synthetic/` | Invented interface examples containing no benchmark records |
+| `analysis/` | Analysis programs; their data and historical results are in the gated artifact |
+| `docs/` | Extraction and reproducibility boundaries |
 
-The evaluators require Python 3 and use only its standard library. There is
-no package installation step for evaluation.
+## Evaluation without data download
 
-The release provides the fixed, human-reviewed test set separately from
-this code repository. Extraction, benchmark construction, annotation tools,
-prompt templates, inference runners, archived model responses and predictions,
-and publisher PDFs or images are outside the release. It supports scoring
-supplied predictions; it does not reconstruct the data from source PDFs or
-replay the paper's historical model generations.
-
-## Run without downloading the benchmark
-
-From the repository root:
+Python 3 alone is sufficient for the standalone evaluators:
 
 ```bash
 python3 evaluation/evaluate_multiple_choice.py \
   --dataset examples/synthetic/multiple_choice.json \
-  --prediction examples/synthetic/prediction_multiple_choice.json \
-  --detail
-
+  --prediction examples/synthetic/prediction_multiple_choice.json --detail
 python3 evaluation/evaluate_fill_in_blank.py \
   --dataset examples/synthetic/fill_in_blank.json \
-  --prediction examples/synthetic/prediction_fill_in_blank.json \
-  --detail
+  --prediction examples/synthetic/prediction_fill_in_blank.json --detail
 ```
 
-All toy records, labels, scores, and predictions were invented to demonstrate
-the file interface. They are not chemical measurements, benchmark items, or
-outputs from evaluated models. The MC demo produces Accuracy `0.5` and Score
-`0.7`. The FIB demo produces Hit `2/3`, Score | Hit `0.75`, and Strict Accuracy
-`1/3`. These values describe only the toy files.
+The toy MC accuracy/score are 0.5/0.7; toy FIB Hit, Score | Hit and Strict are
+2/3, 0.75 and 1/3. These are invented examples, not experimental results.
 
-## Download the benchmark
+## Download and validate the matching data package (pending)
 
-1. Open the [dataset page](https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final)
-   while signed in to your Hugging Face account, read its terms, and complete
-   the access agreement. Download is available after access is granted.
-2. With the official Hugging Face CLI available, run `hf auth login` locally
-   using a token for that same authorized account. Do not place tokens in
-   prediction files, source files, or repository commits.
-3. Download the native JSON files consumed by these evaluators:
+**Do not use the current HF `main` snapshot with this preview validator.** It
+serves the older evaluation-only release and lacks the enlarged artifact files.
+The following commands are for the matching `v0.2.6-target-policy` data release
+after it is published; that data revision is not currently available. To use the
+existing release now, follow the linked `v0.2.5-eval-only` instructions instead.
+
+Accept the agreement on the dataset page using your own Hugging Face account,
+then authenticate the official CLI locally. Keep credentials out of source
+files, logs and commits. Download to a separate directory:
 
 ```bash
-hf download SII-gelingli/RxnOptBench-final \
-  --repo-type dataset \
-  --include "data/original_json/*" \
-  --local-dir .
+hf download SII-gelingli/RxnOptBench-final --repo-type dataset \
+  --revision v0.2.6-target-policy --local-dir ../RxnOptBench-data
+python3 scripts/validate_artifacts.py \
+  --artifact-root ../RxnOptBench-data --snapshot final \
+  --output ../validation/final.json
+python3 scripts/validate_artifacts.py \
+  --artifact-root ../RxnOptBench-data --snapshot historical \
+  --output ../validation/historical.json
 ```
 
-For CLI setup, see the [official documentation](https://huggingface.co/docs/huggingface_hub/guides/cli).
-The dataset's own license and access agreement govern the downloaded records;
-they are not included in this code repository's license.
+The validator runs offline. It checks eight native/JSONL pairs, scoped IDs,
+all 4,773 rendered prompts and stored constant conditions, the reviewed
+file set and hashes declared by its manifest, 12 models × 8 tasks × 3 saved files, and three archived full
+DeepSeek repeat runs (72 additional files). It scores all eight tasks
+with the selected gold snapshot and reports the exact denominators and recorded
+terminal API exclusions. All 11 API-timeout placeholders are evaluated as no
+answer, including reference tasks, so a placeholder integer zero cannot receive
+credit. Only the historical headline MC-all/FIB exclusions (5 and 1) are
+dropped; reference tasks use full N. `--include-all-submitted` makes a separate sensitivity
+calculation including API-skip entries; it does not modify the archived run.
 
-The native files are:
+FIB Hit is the fraction of submitted complete tuples matching an observed
+row; Strict is the fraction matching a tied-best observed row. Score | Hit
+averages normalized utility over observed-row hits. Well-formed unobserved
+tuples count as non-Hits and remain in both submitted-prediction denominators.
+They have no measured outcome and are not labeled chemically invalid.
 
-| File under `data/original_json/` | Questions |
-| --- | ---: |
-| `multiple_choice_single_varying.json` | 1,039 |
-| `multiple_choice_all_varying.json` | 552 |
-| `multiple_choice_single_varying_reference.json` | 850 |
-| `multiple_choice_all_varying_reference.json` | 310 |
-| `multiple_choice_single_varying_reference_control.json` | 850 |
-| `multiple_choice_all_varying_reference_control.json` | 310 |
-| `fill_in_blank_all_blank.json` | 552 |
-| `fill_in_blank_all_blank_reference.json` | 310 |
+## Dataset versions and response-text provenance
 
-The `reference_control` subsets are the paired no-precedents controls of
-their corresponding `reference` subsets.
+Candidate indices are version-specific. The historical snapshot is under
+`historical/submitted_v0.2.4/` in the gated artifact; the active `data/` snapshot
+is identified by its `VERSION` and policy manifests. Pair outputs with the
+corresponding candidate space and scoring policy. Candidate values, inputs,
+IDs and observed condition support are unchanged by the target-policy update.
 
-## Predict and evaluate
+The artifact preserves `metadata/result_index_restoration.json`, including
+before/after SHA-256 hashes, for the deterministic FIB conversion from audit
+permutation to source order. Both parsed predictions and structured answers
+inside some `*_raw.json` strings were changed during that conversion. Those
+files are **derived response-text artifacts**, not byte-for-byte unaltered
+provider responses. The conversion preserves selected chemical values. Its
+existence does not establish which ordering a model actually received.
 
-Write MC predictions as a JSON object mapping every question ID in the
-chosen subset to one **0-based** option index:
+`historical/.../results/table2_metrics.tsv` preserves the historical printed
+table. The validator independently exposes its ChemLLM Strict discrepancy
+(printed 6.6%, retained predictions 29/552 = 5.3%) without inventing a parser
+maintenance explanation. Current-policy scores are computed separately.
 
-```json
-{
-  "question_id": 0
-}
-```
+## Construction and extraction boundary
 
-Write FIB predictions as a JSON object mapping every question ID to a mapping
-of its `query_keys` to **0-based** indices in
-`input.candidate_values[condition_key]`:
+See [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md). The original builders
+and a portable adapter are included. The candidate retains 777 final reviewed
+files from final-benchmark source articles; 107 files from 42 other source
+articles are omitted. This source-level selection does not establish that every
+retained table contributed to a final question. Automatic extraction drafts,
+caches and editing history are also omitted.
 
-```json
-{
-  "question_id": {
-    "catalysts": 0,
-    "solvents": 1
-  }
-}
-```
+An earlier offline reconstruction and comparison used the full 884-file
+reviewed snapshot and did not exactly regenerate the frozen eight subsets.
+Its archived counts describe that earlier experiment, not a new build from
+the 777-file publication subset. Exact construction lineage remains unresolved.
+The frozen questions and all saved-output metrics can be inspected and
+rescored directly without rerunning hosted models.
 
-The IDs and keys above illustrate the format. Use the IDs, keys, and candidate
-orders from the downloaded release. Do not mix candidate indices or answer
-keys from an earlier dataset version.
-
-```bash
-python3 evaluation/evaluate_multiple_choice.py \
-  --dataset data/original_json/multiple_choice_single_varying.json \
-  --prediction my_mc_predictions.json
-
-python3 evaluation/evaluate_fill_in_blank.py \
-  --dataset data/original_json/fill_in_blank_all_blank.json \
-  --prediction my_fib_predictions.json
-```
-
-The examples distributed with the dataset demonstrate the prediction schema;
-they are not evidence of any model's benchmark performance.
-
-## Metrics and interpretation
-
-The evaluators read the release's precomputed labels and scores. They do not
-infer chemical validity, recompute selectivity from raw observations, or
-search for new experimental conditions.
-
-For MC, `exact_match_accuracy` is the fraction of evaluated predictions in
-the stored optimal-answer set; `avg_relative_score` is the mean stored
-relative score of the selected options. An invalid index scores zero.
-`avg_yield_ratio` is an additional yield-only diagnostic, not the headline
-yield-and-selectivity Score.
-
-For FIB, `hit_rate` measures matches to observed joint condition rows. A
-valid in-range combination absent from the observed rows is a non-Hit; it
-is not labeled chemically invalid. `avg_relative_score` is **Score | Hit**,
-the mean relative score restricted to Hits. The printed
-`best_hit_rate_among_scored` also conditions on Hits. The paper's
-**Strict Accuracy** is `best_hit_count / num_samples`, equivalently
-`hit_rate * best_hit_rate_among_scored`; it is not the latter field alone.
-
-**Coverage matters:** both scripts evaluate only question IDs present in
-both the dataset and the predictions. Missing IDs are warned about but
-excluded from the denominator; extra IDs are ignored. Submit a prediction
-for every item and report `num_missing = 0` when comparing against full-set
-results. Run each subset separately and preserve its identity in reports.
-
-## Frozen labels and known limitations
-
-The paper's main tables retain a historical evaluation snapshot and its
-frozen labels. The archived utility combines reported yield with selectivity
-factors. Missing selectivity axes contribute a neutral factor of one,
-omitting those axes rather than establishing perfect selectivity.
-
-In particular, archived `dr` and `rr` parsing must not be interpreted as
-selectivity for one fixed target isomer. Normalizing each row as major:minor
-can discard isomer identity, and numeric compound labels in ratio fields
-require careful parsing. A complete source-verified, target-aware
-re-adjudication of every archived label has not been established. The
-camera-ready appendix discloses this limitation, a separate sensitivity
-ablation removing all `dr/rr` factors, and a parser-maintenance audit. That
-ablation is not an upper bound on the effect of target-aware correction.
-
-The evaluator in this repository uses the scores supplied with the downloaded
-release; it does not silently apply those ablations or relabel the data.
-Fixed-data rescoring is deterministic, while new calls to hosted models may
-produce different answers. The release also retains the documented
-order-dependent FIB comparator as a limitation of its existing labels.
-
-## Citation and support
-
-The author list and paper title are recorded in [CITATION.cff](CITATION.cff).
-No DOI or arXiv identifier is asserted here while final publication metadata
-is pending. Please report the dataset version or revision together with
-the evaluation code revision in any comparison.
-
-For issues with these scripts or metadata, open an issue in
-[this repository](https://github.com/SII-gelingli/RxnOptBench/issues).
-
-## License
-
-The evaluation code, documentation, and synthetic examples are licensed under
-the [MIT License](LICENSE), copyright 2026 RxnOptBench authors. The separately
-hosted benchmark dataset is limited to non-commercial research use under its
-own terms and access agreement. The MIT license does not relicense those
-records or any third-party source materials. See
-[LICENSE_SCOPE.md](LICENSE_SCOPE.md).
-
-## Croissant metadata
-
-The complete [Croissant file](metadata/croissant.json) includes core and RAI
-metadata, immutable file URLs, and SHA-256 checksums.
-[Loading instructions and validation results](metadata/README.md) explain
-how authorized users can recover every nested question through the standard
-Croissant loader. Metadata is available here without a dataset download
-agreement; the actual records remain in the Hugging Face dataset.
+The extraction release deliberately omits the unreleased OCSR model, its
+inference/model-specific postprocessing, weights, third-party source PDFs,
+SI and source-page images. Available stages consume lawfully supplied inputs
+and structured external OCSR JSON. API-dependent stages require user-provided
+services; running `--stages all` is not a self-contained raw-PDF reconstruction.

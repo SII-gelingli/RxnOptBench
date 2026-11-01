@@ -1,25 +1,15 @@
-# Code and dataset licensing
+# License scope
 
-The [MIT License](LICENSE) covers the original evaluation code,
-documentation, citation metadata, and fully synthetic examples distributed
-in this GitHub repository.
+`LICENSE` applies to the RxnOptBench authors' original code, prompt templates,
+documentation and invented `examples/synthetic/` records in this repository.
+It does not license external packages, weights, API services, publications or
+literature-derived benchmark records. `THIRD_PARTY_NOTICES.md` preserves the
+external dependency boundary, including PyMuPDF's AGPL/commercial terms.
 
-The real RxnOptBench benchmark records are distributed separately at:
-
-https://huggingface.co/datasets/SII-gelingli/RxnOptBench-final
-
-They are available for **non-commercial research use**, subject to the
-dataset repository's own license and access agreement. The code's MIT
-license does not apply to those records, including copies downloaded into
-a local `data/` directory, or grant additional rights in third-party
-publications or other source materials. Consult and comply with the
-dataset's full terms before using or sharing its records.
-
-The toy JSON records in `examples/synthetic/` are invented interface
-demonstrations included under MIT. They contain no real benchmark items
-or publisher materials.
-
-`LICENSE-DATA.md` is a verbatim copy of the terms for the separately hosted
-Hugging Face dataset. Its `data/`, `examples/`, and `LICENSE-CODE` paths are
-relative to that dataset repository. It does not apply to this repository's
-`examples/synthetic/`. The MIT code license in this repository is `LICENSE`.
+The separately gated HF artifact uses the noncommercial research terms copied
+in `LICENSE-DATA.md`. That copy's paths refer to the HF repository, not to this
+repository's invented examples. Its data, reviewed structured records, model
+outputs and historical snapshots must not be mirrored here to bypass the
+access agreement. Provider-generated outputs and underlying source materials
+remain subject to applicable upstream rights; the authors grant only rights
+they are entitled to grant.

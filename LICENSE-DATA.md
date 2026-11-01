@@ -6,12 +6,18 @@ the released benchmark.
 
 1. Scope
 
-This license covers the RxnOptBench benchmark records in data/, the
-benchmark-derived prediction-format examples in examples/, and adaptations
-of those records (the "Data"). The standalone evaluation scripts are
-licensed separately under LICENSE-CODE (MIT). Third-party publications,
-figures, supporting information, and other source materials are not
-licensed or redistributed under this license.
+This license covers the RxnOptBench benchmark records in data/, final
+reviewed structured records in reviewed_data/, benchmark-derived examples
+in examples/, archived model predictions and response-text artifacts in
+results/, historical dataset snapshots in historical/, structured analysis
+outputs and author-generated diagnostic figures in analysis/, and
+adaptations of those materials (the "Data"), only to the extent of rights
+the RxnOptBench authors are entitled to grant. Original software and prompt
+templates are licensed separately under LICENSE-CODE (MIT). Third-party
+publications, publisher figures, supporting information, model weights,
+API services and other source materials are not relicensed or redistributed
+under this license. Any applicable upstream rights in provider-generated
+outputs remain with their respective holders.
 
 2. Permitted use
 

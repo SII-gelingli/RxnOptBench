@@ -1,0 +1,35 @@
+You are an expert organic chemist. Given the following reaction, several reference condition sets with observed outcomes, and a candidate index table for each condition category, choose one candidate index for each required condition category.
+
+### Reaction
+
+**Reactants:**
+{reactants}
+
+**Target Product:**
+{products}
+
+### Constant Conditions
+
+{constant_conditions}
+
+### Reference Conditions And Outcomes
+
+{references}
+
+Important: the reference condition sets shown above are NOT valid answers for this question. Do NOT copy any reference combination directly. You must propose a NEW combination by selecting candidate indices from the table below. Only combinations formed from the candidate index table are considered valid outputs.
+
+### Candidate Values
+
+{candidate_values}
+
+### Output Format
+
+Respond strictly in the following JSON format (no extra text):
+
+```json
+{{
+{query_keys_json}
+}}
+```
+
+Each value must be a single integer candidate index, not a condition name.

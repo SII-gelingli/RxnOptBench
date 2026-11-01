@@ -1,0 +1,21 @@
+You are an expert organic chemist. Given the following chemical reaction, choose the best reaction-condition option from the provided candidates.
+
+### Reaction
+
+**Reactants:**
+{reactants}
+
+**Target Product:**
+{products}
+
+### Constant Conditions (do not change)
+
+{constant_conditions}
+
+### Candidate Conditions
+
+{options}
+
+### Output Format
+
+Respond with ONLY the option index (0-based integer).

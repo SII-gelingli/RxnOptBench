@@ -1,0 +1,25 @@
+You are an expert organic chemist. Given the following chemical reaction and one real fixed condition group taken from the source table, choose the best value for **{target_key}** from the provided options.
+
+### Reaction
+
+**Reactants:**
+{reactants}
+
+**Target Product:**
+{products}
+
+### Constant Conditions (do not change)
+
+{constant_conditions}
+
+### Fixed Conditions
+
+{fixed_conditions}
+
+### Candidate Values For {target_key}
+
+{options}
+
+### Output Format
+
+Respond with ONLY the option index (0-based integer).

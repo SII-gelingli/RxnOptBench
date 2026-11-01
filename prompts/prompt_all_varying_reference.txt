@@ -1,0 +1,25 @@
+You are an expert organic chemist. Given the following reaction and several reference condition sets with observed outcomes, choose the best remaining reaction-condition option.
+
+### Reaction
+
+**Reactants:**
+{reactants}
+
+**Target Product:**
+{products}
+
+### Constant Conditions (do not change)
+
+{constant_conditions}
+
+### Reference Conditions And Outcomes
+
+{references}
+
+### Candidate Conditions
+
+{options}
+
+### Output Format
+
+Respond with ONLY the option index (0-based integer).

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "RxnOptBench 0.2.5-eval-only native question schemas",
-  "description": "The appropriate schema is selected by the Croissant RecordSet/subset name. Inferred from all frozen records; it specifies structure, not chemical validity or dataset licensing.",
+  "title": "RxnOptBench 0.2.6-target-policy native question schemas",
+  "description": "The appropriate schema is selected by the Croissant RecordSet/subset name. Inferred from all local candidate records; it specifies structure, not chemical validity or dataset licensing.",
   "$defs": {
     "fill_in_blank_all_blank": {
       "type": "object",
@@ -1498,6 +1498,9 @@
                 "type": "string"
               }
             },
+            "best_scope": {
+              "type": "string"
+            },
             "best_yield": {
               "type": "number"
             },
@@ -1512,10 +1515,7 @@
                   "effective_score": {
                     "type": "number"
                   },
-                  "relative_score": {
-                    "type": "number"
-                  },
-                  "score": {
+                  "raw_observed_score": {
                     "type": "object",
                     "properties": {
                       "dr": {
@@ -1557,6 +1557,51 @@
                             "type": "number"
                           }
                         ]
+                      },
+                      "yield": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "dr",
+                      "ee",
+                      "er",
+                      "rr",
+                      "yield"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "relative_score": {
+                    "type": "number"
+                  },
+                  "score": {
+                    "type": "object",
+                    "properties": {
+                      "dr": {
+                        "type": "null"
+                      },
+                      "ee": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ]
+                      },
+                      "er": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ]
+                      },
+                      "rr": {
+                        "type": "null"
                       },
                       "yield": {
                         "type": "number"
@@ -1672,16 +1717,23 @@
                     ],
                     "additionalProperties": false
                   },
+                  "target_fractions": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false
+                  },
                   "yield": {
                     "type": "number"
                   }
                 },
                 "required": [
                   "effective_score",
+                  "raw_observed_score",
                   "relative_score",
                   "score",
                   "selection",
                   "source_entry",
+                  "target_fractions",
                   "yield"
                 ],
                 "additionalProperties": false
@@ -1693,6 +1745,38 @@
             "parent_table_id": {
               "type": "string"
             },
+            "selectivity_policy": {
+              "type": "object",
+              "properties": {
+                "dr": {
+                  "type": "string"
+                },
+                "ee_er": {
+                  "type": "string"
+                },
+                "raw_observed_scores": {
+                  "type": "string"
+                },
+                "reference_outcomes": {
+                  "type": "string"
+                },
+                "rr": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dr",
+                "ee_er",
+                "raw_observed_scores",
+                "reference_outcomes",
+                "rr",
+                "version"
+              ],
+              "additionalProperties": false
+            },
             "source_file": {
               "type": "string"
             },
@@ -1703,11 +1787,13 @@
           "required": [
             "best_effective_score",
             "best_entry_indices",
+            "best_scope",
             "best_yield",
             "doi",
             "legal_combinations",
             "main_product_smiles",
             "parent_table_id",
+            "selectivity_policy",
             "source_file",
             "total_entries_in_source_table"
           ],
@@ -3766,6 +3852,9 @@
                 "type": "string"
               }
             },
+            "best_scope": {
+              "type": "string"
+            },
             "best_yield": {
               "type": "number"
             },
@@ -3780,10 +3869,7 @@
                   "effective_score": {
                     "type": "number"
                   },
-                  "relative_score": {
-                    "type": "number"
-                  },
-                  "score": {
+                  "raw_observed_score": {
                     "type": "object",
                     "properties": {
                       "dr": {
@@ -3825,6 +3911,51 @@
                             "type": "number"
                           }
                         ]
+                      },
+                      "yield": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "dr",
+                      "ee",
+                      "er",
+                      "rr",
+                      "yield"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "relative_score": {
+                    "type": "number"
+                  },
+                  "score": {
+                    "type": "object",
+                    "properties": {
+                      "dr": {
+                        "type": "null"
+                      },
+                      "ee": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ]
+                      },
+                      "er": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ]
+                      },
+                      "rr": {
+                        "type": "null"
                       },
                       "yield": {
                         "type": "number"
@@ -3940,16 +4071,23 @@
                     ],
                     "additionalProperties": false
                   },
+                  "target_fractions": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false
+                  },
                   "yield": {
                     "type": "number"
                   }
                 },
                 "required": [
                   "effective_score",
+                  "raw_observed_score",
                   "relative_score",
                   "score",
                   "selection",
                   "source_entry",
+                  "target_fractions",
                   "yield"
                 ],
                 "additionalProperties": false
@@ -3961,6 +4099,38 @@
             "parent_table_id": {
               "type": "string"
             },
+            "selectivity_policy": {
+              "type": "object",
+              "properties": {
+                "dr": {
+                  "type": "string"
+                },
+                "ee_er": {
+                  "type": "string"
+                },
+                "raw_observed_scores": {
+                  "type": "string"
+                },
+                "reference_outcomes": {
+                  "type": "string"
+                },
+                "rr": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dr",
+                "ee_er",
+                "raw_observed_scores",
+                "reference_outcomes",
+                "rr",
+                "version"
+              ],
+              "additionalProperties": false
+            },
             "source_file": {
               "type": "string"
             },
@@ -3971,11 +4141,13 @@
           "required": [
             "best_effective_score",
             "best_entry_indices",
+            "best_scope",
             "best_yield",
             "doi",
             "legal_combinations",
             "main_product_smiles",
             "parent_table_id",
+            "selectivity_policy",
             "source_file",
             "total_entries_in_source_table"
           ],
@@ -4536,6 +4708,9 @@
                 "type": "string"
               }
             },
+            "best_scope": {
+              "type": "string"
+            },
             "best_yield": {
               "type": "number"
             },
@@ -4556,6 +4731,9 @@
               "items": {
                 "type": "string"
               }
+            },
+            "global_best_scope": {
+              "type": "string"
             },
             "global_best_yield": {
               "type": "number"
@@ -4595,7 +4773,7 @@
             "parent_table_id": {
               "type": "string"
             },
-            "scores": {
+            "raw_observed_scores": {
               "type": "array",
               "items": {
                 "type": "object",
@@ -4654,8 +4832,93 @@
                 "additionalProperties": false
               }
             },
+            "scores": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "dr": {
+                    "type": "null"
+                  },
+                  "ee": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "er": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "rr": {
+                    "type": "null"
+                  },
+                  "yield": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "dr",
+                  "ee",
+                  "er",
+                  "rr",
+                  "yield"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "selectivity_policy": {
+              "type": "object",
+              "properties": {
+                "dr": {
+                  "type": "string"
+                },
+                "ee_er": {
+                  "type": "string"
+                },
+                "raw_observed_scores": {
+                  "type": "string"
+                },
+                "reference_outcomes": {
+                  "type": "string"
+                },
+                "rr": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dr",
+                "ee_er",
+                "raw_observed_scores",
+                "reference_outcomes",
+                "rr",
+                "version"
+              ],
+              "additionalProperties": false
+            },
             "source_file": {
               "type": "string"
+            },
+            "target_fractions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": false
+              }
             },
             "total_entries_in_source_table": {
               "type": "integer"
@@ -4670,18 +4933,23 @@
           "required": [
             "best_effective_score",
             "best_entry_indices",
+            "best_scope",
             "best_yield",
             "doi",
             "effective_scores",
             "global_best_effective_score",
             "global_best_entry_indices",
+            "global_best_scope",
             "global_best_yield",
             "main_product_smiles",
             "option_relative_scores",
             "option_source_entries",
             "parent_table_id",
+            "raw_observed_scores",
             "scores",
+            "selectivity_policy",
             "source_file",
+            "target_fractions",
             "total_entries_in_source_table",
             "yields"
           ],
@@ -6284,6 +6552,9 @@
                 "type": "string"
               }
             },
+            "best_scope": {
+              "type": "string"
+            },
             "best_yield": {
               "type": "number"
             },
@@ -6304,6 +6575,9 @@
               "items": {
                 "type": "string"
               }
+            },
+            "global_best_scope": {
+              "type": "string"
             },
             "global_best_yield": {
               "type": "number"
@@ -6343,7 +6617,7 @@
             "parent_table_id": {
               "type": "string"
             },
-            "scores": {
+            "raw_observed_scores": {
               "type": "array",
               "items": {
                 "type": "object",
@@ -6402,8 +6676,93 @@
                 "additionalProperties": false
               }
             },
+            "scores": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "dr": {
+                    "type": "null"
+                  },
+                  "ee": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "er": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "rr": {
+                    "type": "null"
+                  },
+                  "yield": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "dr",
+                  "ee",
+                  "er",
+                  "rr",
+                  "yield"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "selectivity_policy": {
+              "type": "object",
+              "properties": {
+                "dr": {
+                  "type": "string"
+                },
+                "ee_er": {
+                  "type": "string"
+                },
+                "raw_observed_scores": {
+                  "type": "string"
+                },
+                "reference_outcomes": {
+                  "type": "string"
+                },
+                "rr": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dr",
+                "ee_er",
+                "raw_observed_scores",
+                "reference_outcomes",
+                "rr",
+                "version"
+              ],
+              "additionalProperties": false
+            },
             "source_file": {
               "type": "string"
+            },
+            "target_fractions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": false
+              }
             },
             "total_entries_in_source_table": {
               "type": "integer"
@@ -6418,18 +6777,23 @@
           "required": [
             "best_effective_score",
             "best_entry_indices",
+            "best_scope",
             "best_yield",
             "doi",
             "effective_scores",
             "global_best_effective_score",
             "global_best_entry_indices",
+            "global_best_scope",
             "global_best_yield",
             "main_product_smiles",
             "option_relative_scores",
             "option_source_entries",
             "parent_table_id",
+            "raw_observed_scores",
             "scores",
+            "selectivity_policy",
             "source_file",
+            "target_fractions",
             "total_entries_in_source_table",
             "yields"
           ],
@@ -7426,6 +7790,9 @@
                 "type": "string"
               }
             },
+            "best_scope": {
+              "type": "string"
+            },
             "best_yield": {
               "type": "number"
             },
@@ -7446,6 +7813,9 @@
               "items": {
                 "type": "string"
               }
+            },
+            "global_best_scope": {
+              "type": "string"
             },
             "global_best_yield": {
               "type": "number"
@@ -7485,7 +7855,7 @@
             "parent_table_id": {
               "type": "string"
             },
-            "scores": {
+            "raw_observed_scores": {
               "type": "array",
               "items": {
                 "type": "object",
@@ -7544,8 +7914,93 @@
                 "additionalProperties": false
               }
             },
+            "scores": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "dr": {
+                    "type": "null"
+                  },
+                  "ee": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "er": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "rr": {
+                    "type": "null"
+                  },
+                  "yield": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "dr",
+                  "ee",
+                  "er",
+                  "rr",
+                  "yield"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "selectivity_policy": {
+              "type": "object",
+              "properties": {
+                "dr": {
+                  "type": "string"
+                },
+                "ee_er": {
+                  "type": "string"
+                },
+                "raw_observed_scores": {
+                  "type": "string"
+                },
+                "reference_outcomes": {
+                  "type": "string"
+                },
+                "rr": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dr",
+                "ee_er",
+                "raw_observed_scores",
+                "reference_outcomes",
+                "rr",
+                "version"
+              ],
+              "additionalProperties": false
+            },
             "source_file": {
               "type": "string"
+            },
+            "target_fractions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": false
+              }
             },
             "total_entries_in_source_table": {
               "type": "integer"
@@ -7560,18 +8015,23 @@
           "required": [
             "best_effective_score",
             "best_entry_indices",
+            "best_scope",
             "best_yield",
             "doi",
             "effective_scores",
             "global_best_effective_score",
             "global_best_entry_indices",
+            "global_best_scope",
             "global_best_yield",
             "main_product_smiles",
             "option_relative_scores",
             "option_source_entries",
             "parent_table_id",
+            "raw_observed_scores",
             "scores",
+            "selectivity_policy",
             "source_file",
+            "target_fractions",
             "total_entries_in_source_table",
             "yields"
           ],
@@ -9050,6 +9510,9 @@
                 "type": "string"
               }
             },
+            "best_scope": {
+              "type": "string"
+            },
             "best_yield": {
               "type": "number"
             },
@@ -9070,6 +9533,9 @@
               "items": {
                 "type": "string"
               }
+            },
+            "global_best_scope": {
+              "type": "string"
             },
             "global_best_yield": {
               "type": "number"
@@ -9109,7 +9575,7 @@
             "parent_table_id": {
               "type": "string"
             },
-            "scores": {
+            "raw_observed_scores": {
               "type": "array",
               "items": {
                 "type": "object",
@@ -9168,8 +9634,93 @@
                 "additionalProperties": false
               }
             },
+            "scores": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "dr": {
+                    "type": "null"
+                  },
+                  "ee": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "er": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "rr": {
+                    "type": "null"
+                  },
+                  "yield": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "dr",
+                  "ee",
+                  "er",
+                  "rr",
+                  "yield"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "selectivity_policy": {
+              "type": "object",
+              "properties": {
+                "dr": {
+                  "type": "string"
+                },
+                "ee_er": {
+                  "type": "string"
+                },
+                "raw_observed_scores": {
+                  "type": "string"
+                },
+                "reference_outcomes": {
+                  "type": "string"
+                },
+                "rr": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dr",
+                "ee_er",
+                "raw_observed_scores",
+                "reference_outcomes",
+                "rr",
+                "version"
+              ],
+              "additionalProperties": false
+            },
             "source_file": {
               "type": "string"
+            },
+            "target_fractions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": false
+              }
             },
             "total_entries_in_source_table": {
               "type": "integer"
@@ -9184,18 +9735,23 @@
           "required": [
             "best_effective_score",
             "best_entry_indices",
+            "best_scope",
             "best_yield",
             "doi",
             "effective_scores",
             "global_best_effective_score",
             "global_best_entry_indices",
+            "global_best_scope",
             "global_best_yield",
             "main_product_smiles",
             "option_relative_scores",
             "option_source_entries",
             "parent_table_id",
+            "raw_observed_scores",
             "scores",
+            "selectivity_policy",
             "source_file",
+            "target_fractions",
             "total_entries_in_source_table",
             "yields"
           ],
@@ -11090,6 +11646,9 @@
                 "type": "string"
               }
             },
+            "best_scope": {
+              "type": "string"
+            },
             "best_yield": {
               "type": "number"
             },
@@ -11110,6 +11669,9 @@
               "items": {
                 "type": "string"
               }
+            },
+            "global_best_scope": {
+              "type": "string"
             },
             "global_best_yield": {
               "type": "number"
@@ -11149,7 +11711,7 @@
             "parent_table_id": {
               "type": "string"
             },
-            "scores": {
+            "raw_observed_scores": {
               "type": "array",
               "items": {
                 "type": "object",
@@ -11208,8 +11770,93 @@
                 "additionalProperties": false
               }
             },
+            "scores": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "dr": {
+                    "type": "null"
+                  },
+                  "ee": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "er": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "rr": {
+                    "type": "null"
+                  },
+                  "yield": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "dr",
+                  "ee",
+                  "er",
+                  "rr",
+                  "yield"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "selectivity_policy": {
+              "type": "object",
+              "properties": {
+                "dr": {
+                  "type": "string"
+                },
+                "ee_er": {
+                  "type": "string"
+                },
+                "raw_observed_scores": {
+                  "type": "string"
+                },
+                "reference_outcomes": {
+                  "type": "string"
+                },
+                "rr": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dr",
+                "ee_er",
+                "raw_observed_scores",
+                "reference_outcomes",
+                "rr",
+                "version"
+              ],
+              "additionalProperties": false
+            },
             "source_file": {
               "type": "string"
+            },
+            "target_fractions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": false
+              }
             },
             "total_entries_in_source_table": {
               "type": "integer"
@@ -11224,18 +11871,23 @@
           "required": [
             "best_effective_score",
             "best_entry_indices",
+            "best_scope",
             "best_yield",
             "doi",
             "effective_scores",
             "global_best_effective_score",
             "global_best_entry_indices",
+            "global_best_scope",
             "global_best_yield",
             "main_product_smiles",
             "option_relative_scores",
             "option_source_entries",
             "parent_table_id",
+            "raw_observed_scores",
             "scores",
+            "selectivity_policy",
             "source_file",
+            "target_fractions",
             "total_entries_in_source_table",
             "yields"
           ],
@@ -12558,6 +13210,9 @@
                 "type": "string"
               }
             },
+            "best_scope": {
+              "type": "string"
+            },
             "best_yield": {
               "type": "number"
             },
@@ -12578,6 +13233,9 @@
               "items": {
                 "type": "string"
               }
+            },
+            "global_best_scope": {
+              "type": "string"
             },
             "global_best_yield": {
               "type": "number"
@@ -12617,7 +13275,7 @@
             "parent_table_id": {
               "type": "string"
             },
-            "scores": {
+            "raw_observed_scores": {
               "type": "array",
               "items": {
                 "type": "object",
@@ -12676,8 +13334,93 @@
                 "additionalProperties": false
               }
             },
+            "scores": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "dr": {
+                    "type": "null"
+                  },
+                  "ee": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "er": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "rr": {
+                    "type": "null"
+                  },
+                  "yield": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "dr",
+                  "ee",
+                  "er",
+                  "rr",
+                  "yield"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "selectivity_policy": {
+              "type": "object",
+              "properties": {
+                "dr": {
+                  "type": "string"
+                },
+                "ee_er": {
+                  "type": "string"
+                },
+                "raw_observed_scores": {
+                  "type": "string"
+                },
+                "reference_outcomes": {
+                  "type": "string"
+                },
+                "rr": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dr",
+                "ee_er",
+                "raw_observed_scores",
+                "reference_outcomes",
+                "rr",
+                "version"
+              ],
+              "additionalProperties": false
+            },
             "source_file": {
               "type": "string"
+            },
+            "target_fractions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": false
+              }
             },
             "total_entries_in_source_table": {
               "type": "integer"
@@ -12692,18 +13435,23 @@
           "required": [
             "best_effective_score",
             "best_entry_indices",
+            "best_scope",
             "best_yield",
             "doi",
             "effective_scores",
             "global_best_effective_score",
             "global_best_entry_indices",
+            "global_best_scope",
             "global_best_yield",
             "main_product_smiles",
             "option_relative_scores",
             "option_source_entries",
             "parent_table_id",
+            "raw_observed_scores",
             "scores",
+            "selectivity_policy",
             "source_file",
+            "target_fractions",
             "total_entries_in_source_table",
             "yields"
           ],

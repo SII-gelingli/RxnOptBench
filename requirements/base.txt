@@ -1,0 +1,11 @@
+PyMuPDF>=1.24,<2
+Pillow>=10,<12
+requests>=2.31,<3
+openai>=1.40,<3
+filelock>=3.13,<4
+numpy>=1.26,<3
+scipy>=1.11,<2
+matplotlib>=3.8,<4
+scikit-learn>=1.4,<2
+opencv-python-headless>=4.9,<5
+rdkit>=2023.9

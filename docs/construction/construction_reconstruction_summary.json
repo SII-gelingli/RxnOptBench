@@ -1,0 +1,122 @@
+{
+  "network_calls": false,
+  "frozen_inputs_mutated": false,
+  "reviewed_tables": 884,
+  "content_verified_legacy_parent_id_count": 416,
+  "comparison_ignores": [
+    "question ID",
+    "provenance metadata",
+    "option/candidate ordering with correctly remapped answers and labels"
+  ],
+  "warning": "Final reviewed snapshot and archived released builder do not independently reconstruct all frozen submitted questions. Canonical data remain frozen; this report does not authorize replacing them.",
+  "subsets": {
+    "fill_in_blank_all_blank": {
+      "archived_count": 552,
+      "rebuilt_count": 553,
+      "paired_questions": 416,
+      "semantically_identical_paired": 348,
+      "changed_paired": 68,
+      "archived_without_verified_pair": 136,
+      "rebuilt_without_verified_pair": 137,
+      "changed_field_group_counts": {
+        "candidate_values": 67,
+        "legal_combinations": 68,
+        "answer_values": 15
+      }
+    },
+    "fill_in_blank_all_blank_reference": {
+      "archived_count": 310,
+      "rebuilt_count": 289,
+      "paired_questions": 221,
+      "semantically_identical_paired": 160,
+      "changed_paired": 61,
+      "archived_without_verified_pair": 89,
+      "rebuilt_without_verified_pair": 68,
+      "changed_field_group_counts": {
+        "candidate_values": 55,
+        "input": 39,
+        "legal_combinations": 56,
+        "answer_values": 16
+      }
+    },
+    "multiple_choice_all_varying": {
+      "archived_count": 552,
+      "rebuilt_count": 553,
+      "paired_questions": 416,
+      "semantically_identical_paired": 349,
+      "changed_paired": 67,
+      "archived_without_verified_pair": 136,
+      "rebuilt_without_verified_pair": 137,
+      "changed_field_group_counts": {
+        "option_label_pairs": 67
+      }
+    },
+    "multiple_choice_all_varying_reference": {
+      "archived_count": 310,
+      "rebuilt_count": 289,
+      "paired_questions": 221,
+      "semantically_identical_paired": 161,
+      "changed_paired": 60,
+      "archived_without_verified_pair": 89,
+      "rebuilt_without_verified_pair": 68,
+      "changed_field_group_counts": {
+        "input": 39,
+        "option_label_pairs": 55
+      }
+    },
+    "multiple_choice_all_varying_reference_control": {
+      "archived_count": 310,
+      "rebuilt_count": 289,
+      "paired_questions": 221,
+      "semantically_identical_paired": 166,
+      "changed_paired": 55,
+      "archived_without_verified_pair": 89,
+      "rebuilt_without_verified_pair": 68,
+      "changed_field_group_counts": {
+        "option_label_pairs": 55
+      }
+    },
+    "multiple_choice_single_varying": {
+      "archived_count": 1039,
+      "rebuilt_count": 962,
+      "paired_questions": 807,
+      "semantically_identical_paired": 750,
+      "changed_paired": 57,
+      "archived_without_verified_pair": 232,
+      "rebuilt_without_verified_pair": 155,
+      "changed_field_group_counts": {
+        "option_label_pairs": 51,
+        "input": 18,
+        "meta": 12
+      }
+    },
+    "multiple_choice_single_varying_reference": {
+      "archived_count": 850,
+      "rebuilt_count": 769,
+      "paired_questions": 661,
+      "semantically_identical_paired": 510,
+      "changed_paired": 151,
+      "archived_without_verified_pair": 189,
+      "rebuilt_without_verified_pair": 108,
+      "changed_field_group_counts": {
+        "option_label_pairs": 50,
+        "input": 133,
+        "meta": 11
+      }
+    },
+    "multiple_choice_single_varying_reference_control": {
+      "archived_count": 850,
+      "rebuilt_count": 769,
+      "paired_questions": 661,
+      "semantically_identical_paired": 605,
+      "changed_paired": 56,
+      "archived_without_verified_pair": 189,
+      "rebuilt_without_verified_pair": 108,
+      "changed_field_group_counts": {
+        "option_label_pairs": 50,
+        "input": 18,
+        "meta": 11
+      }
+    }
+  }
+}

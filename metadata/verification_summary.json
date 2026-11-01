@@ -1,25 +1,99 @@
 {
-  "status": "pass_for_core_RAI_and_authorized_complete_loading",
-  "publication_date": "2026-11-01",
-  "metadata_sha256": "d79b0940a15382ac14889defd8742d014ff228892fdf415b9737578251b8c543",
-  "data_revision": "d93d99cc3d51a8fab77ba1b2cb14fc839248c447",
+  "status": "local-validation-pass-publication-pending",
+  "version": "0.2.6-target-policy",
+  "published": false,
+  "immutable_remote_revision": null,
+  "remote_and_online_checker_validated": false,
+  "croissant_sha256": "5584dc3ce46a6d9610ec5b15218ce0b22f2d00345d4b750badb8b6ad2a8cf0b6",
+  "record_schema_sha256": "15097712556fb05c0deeb50668f89fc6e10a09b88c7e72ab9ae5ea73cd682235",
   "record_sets": 8,
   "records_loaded": 4773,
-  "network_file_hashes_verified": 24,
+  "distribution_hashes_checked": 24,
+  "native_json_jsonl_and_loaded_records_equal": true,
+  "all_records_json_schema_validated": true,
+  "required_rai_topics": {
+    "rai:dataLimitations": true,
+    "rai:dataBiases": true,
+    "rai:personalSensitiveInformation": true,
+    "rai:dataUseCases": true,
+    "rai:dataSocialImpact": true,
+    "rai:hasSyntheticData": true,
+    "prov:wasDerivedFrom": true,
+    "prov:wasGeneratedBy": true
+  },
   "static_errors": [],
-  "static_warnings": [],
-  "official_online": {
-    "json": "pass",
-    "core_schema": "pass",
-    "required_rai": "pass",
-    "anonymous_records": "blocked_by_HTTP_401_gated_access"
+  "static_warnings": [
+    "[Metadata(RxnOptBench)] Property \"https://schema.org/datePublished\" is recommended, but does not exist."
+  ],
+  "datePublished_omitted_reason": "Candidate has not been published; no publication date is asserted.",
+  "raw_source_strings": 236,
+  "casefold_source_identifiers": 232,
+  "parent_tables": 552,
+  "released_unique_observations": 4768,
+  "observed_dr_rr_axes_excluded": 65,
+  "human_verified_dr_rr_axes_included": 0,
+  "global_best_scope": "all_released_observations_for_parent_table",
+  "safe_public_metadata_files": [
+    "croissant.draft.json",
+    "record_schema.json",
+    "load_croissant.py",
+    "requirements.txt",
+    "README_PUBLIC.txt",
+    "validation_local.json",
+    "verification_summary.json"
+  ],
+  "data_host_only": [
+    "transport/"
+  ],
+  "local_packaging_only": [
+    "build_manifest.json"
+  ],
+  "limitations": "Structural transport validation does not certify scientific labels, upstream rights, remote availability, or conference approval of gating.",
+  "review_snapshot_exact_regeneration_established": false,
+  "paired_comparison_causal_isolation_established": false,
+  "original_provider_prompt_order_verified": false,
+  "public_source_category_evidence": {
+    "final_source_dois": 232,
+    "publisher_families": 6,
+    "acs_si_license_entries": 102,
+    "identity_matched_to_registry": true,
+    "project_wide_clearance_asserted": false,
+    "location_in_hf_candidate": "metadata/source_rights/"
   },
-  "standalone_loader": {
-    "working_directory": "/tmp",
-    "subset": "multiple_choice_all_varying",
-    "records_loaded": 552,
-    "exit_code": 0
+  "historical_unknowns": [
+    "download dates",
+    "institutional subscription details",
+    "API hosting"
+  ],
+  "unresolved_source_scope": [
+    "actual SI/source-file correspondence and separately licensed or third-party scope",
+    "expression in notes within the 777 source-relevant reviewed records; source relevance does not establish item-level license clearance"
+  ],
+  "license_legal_text_changed": false,
+  "data_and_scores_changed_by_source_documentation_update": false,
+  "reviewed_release_scope": {
+    "current_source_relevant_reviewed_records": 777,
+    "final_source_groups": 232,
+    "bridged_final_tables": 416,
+    "final_source_groups_without_reviewed_match": 12,
+    "missing_mappings_fabricated": false,
+    "historical_full_snapshot_construction_experiment": {
+      "reviewed_records": 884,
+      "constructed_questions": 4473,
+      "describes_current_reduced_scope": false
+    },
+    "current_reduced_scope_construction_rerun": false,
+    "exact_final_question_regeneration_claimed": false,
+    "evaluation_questions_changed_by_scope_update": false,
+    "scores_changed_by_scope_update": false,
+    "license_clearance_inferred_from_source_relevance": false
   },
-  "auto_generated_HF_core_anonymous_http_status": 401,
-  "limits": "No anonymous complete-record loading claim. Agreement/login required. Source permissions and scientific label correctness are outside transport validation."
+  "scope_update_integrity": {
+    "all_24_distribution_hashes_unchanged": true,
+    "record_schema_hash_unchanged": true,
+    "official_local_validation_runs_for_scope_update": 1,
+    "model_or_score_calls": 0,
+    "source_quality_investigation_performed": false
+  },
+  "data_and_scores_changed_by_reviewed_scope_update": false
 }

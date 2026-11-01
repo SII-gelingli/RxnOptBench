@@ -1,22 +1,22 @@
-# Downloaded benchmark data remains subject to the dataset access agreement.
-/data/
-/.cache/
-
-# Local predictions and evaluation output.
-/my_*_predictions.json
-/outputs/
-/results/
-/logs/
-
-# Credentials and machine-specific files.
-.env
-.env.*
-*.token
 __pycache__/
 *.py[cod]
 .DS_Store
-.venv/
-venv/
-
-# Local preparation reports are not publication artifacts.
-/PREPUBLICATION_CHECK.md
+._*
+.env
+.env.*
+!*.env.example
+*.key
+*.pem
+.venv*/
+/data/
+/reviewed_data/
+/results/
+/historical/
+/review_data/
+/inputs/
+/outputs/
+/build_outputs/
+/validation/
+/code/review_data/
+/code/stage*/
+*.log
