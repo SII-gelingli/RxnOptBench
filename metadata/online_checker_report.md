@@ -1108,6 +1108,7 @@ mlcroissant._src.core.issues.GenerationError: An error occurred during the strea
       "sc:name": "Evaluation-only camera-ready packaging",
       "sc:description": "Preserve the 0.2.5-eval-only human-reviewed test files and matching candidate indices; provide eight JSONL subsets, eight native JSON files, two deterministic evaluation scripts, minimal prediction-schema examples, and documentation. No extraction pipeline, model outputs, publisher documents, or source images are part of the release. Include MIT code terms and the custom RxnOptBench Noncommercial Research License v1.0 data terms. Core Croissant metadata documents the lossless transport, and loader/access verification is recorded separately in validation reports."
     }
-  ]
+  ],
+  "datePublished": "2026-11-01"
 }
 ```

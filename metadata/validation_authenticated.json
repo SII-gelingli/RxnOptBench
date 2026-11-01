@@ -1,8 +1,8 @@
 {
   "status": "pass",
-  "checked_utc": "2026-11-01T06:28:58.905060+00:00",
+  "checked_utc": "2026-11-01T06:31:50.915912+00:00",
   "mode": "authenticated",
-  "metadata_sha256": "1c326f07d795fa59bca3dbf799a1452619a15f3e496efd2d82c8d68977986758",
+  "metadata_sha256": "d79b0940a15382ac14889defd8742d014ff228892fdf415b9737578251b8c543",
   "mlcroissant_version": "1.1.1",
   "jsonschema_version": "4.26.0",
   "data_revision": [
@@ -224,9 +224,7 @@
   ],
   "authentication": "standard cached HF login or HF_TOKEN; secret not recorded",
   "static_errors": [],
-  "static_warnings": [
-    "[Metadata(RxnOptBench)] Property \"https://schema.org/datePublished\" is recommended, but does not exist."
-  ],
+  "static_warnings": [],
   "records_loaded": 4773,
   "limits": "This checks the official reference loader, complete local record equality, declared RAI presence, and nested structural schema. It does not establish scientific label correctness, source-document licensing, gated-access acceptance by reviewers, or approval by the NeurIPS online validator. Authenticated mode verifies authorized network access; anonymous downloads remain gated."
 }

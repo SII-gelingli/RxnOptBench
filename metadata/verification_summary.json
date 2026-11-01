@@ -1,0 +1,25 @@
+{
+  "status": "pass_for_core_RAI_and_authorized_complete_loading",
+  "publication_date": "2026-11-01",
+  "metadata_sha256": "d79b0940a15382ac14889defd8742d014ff228892fdf415b9737578251b8c543",
+  "data_revision": "d93d99cc3d51a8fab77ba1b2cb14fc839248c447",
+  "record_sets": 8,
+  "records_loaded": 4773,
+  "network_file_hashes_verified": 24,
+  "static_errors": [],
+  "static_warnings": [],
+  "official_online": {
+    "json": "pass",
+    "core_schema": "pass",
+    "required_rai": "pass",
+    "anonymous_records": "blocked_by_HTTP_401_gated_access"
+  },
+  "standalone_loader": {
+    "working_directory": "/tmp",
+    "subset": "multiple_choice_all_varying",
+    "records_loaded": 552,
+    "exit_code": 0
+  },
+  "auto_generated_HF_core_anonymous_http_status": 401,
+  "limits": "No anonymous complete-record loading claim. Agreement/login required. Source permissions and scientific label correctness are outside transport validation."
+}
