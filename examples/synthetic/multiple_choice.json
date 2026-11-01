@@ -1,0 +1,44 @@
+[
+  {
+    "id": "synthetic_mc_1",
+    "options": [
+      "toy option A",
+      "toy option B"
+    ],
+    "answer": [
+      1
+    ],
+    "meta": {
+      "yields": [
+        40,
+        80
+      ],
+      "option_relative_scores": [
+        0.5,
+        1.0
+      ],
+      "best_yield": 80
+    }
+  },
+  {
+    "id": "synthetic_mc_2",
+    "options": [
+      "toy option C",
+      "toy option D"
+    ],
+    "answer": [
+      0
+    ],
+    "meta": {
+      "yields": [
+        100,
+        40
+      ],
+      "option_relative_scores": [
+        1.0,
+        0.4
+      ],
+      "best_yield": 100
+    }
+  }
+]

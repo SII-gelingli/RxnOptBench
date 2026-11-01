@@ -1,0 +1,113 @@
+[
+  {
+    "id": "synthetic_fib_1",
+    "query_keys": [
+      "toy_factor_a",
+      "toy_factor_b"
+    ],
+    "input": {
+      "candidate_values": {
+        "toy_factor_a": [
+          "A0",
+          "A1"
+        ],
+        "toy_factor_b": [
+          "B0",
+          "B1"
+        ]
+      }
+    },
+    "meta": {
+      "legal_combinations": [
+        {
+          "selection": {
+            "toy_factor_a": 0,
+            "toy_factor_b": 0
+          },
+          "relative_score": 1.0
+        },
+        {
+          "selection": {
+            "toy_factor_a": 1,
+            "toy_factor_b": 1
+          },
+          "relative_score": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "id": "synthetic_fib_2",
+    "query_keys": [
+      "toy_factor_a",
+      "toy_factor_b"
+    ],
+    "input": {
+      "candidate_values": {
+        "toy_factor_a": [
+          "A0",
+          "A1"
+        ],
+        "toy_factor_b": [
+          "B0",
+          "B1"
+        ]
+      }
+    },
+    "meta": {
+      "legal_combinations": [
+        {
+          "selection": {
+            "toy_factor_a": 0,
+            "toy_factor_b": 0
+          },
+          "relative_score": 1.0
+        },
+        {
+          "selection": {
+            "toy_factor_a": 1,
+            "toy_factor_b": 1
+          },
+          "relative_score": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "id": "synthetic_fib_3",
+    "query_keys": [
+      "toy_factor_a",
+      "toy_factor_b"
+    ],
+    "input": {
+      "candidate_values": {
+        "toy_factor_a": [
+          "A0",
+          "A1"
+        ],
+        "toy_factor_b": [
+          "B0",
+          "B1"
+        ]
+      }
+    },
+    "meta": {
+      "legal_combinations": [
+        {
+          "selection": {
+            "toy_factor_a": 0,
+            "toy_factor_b": 0
+          },
+          "relative_score": 1.0
+        },
+        {
+          "selection": {
+            "toy_factor_a": 1,
+            "toy_factor_b": 1
+          },
+          "relative_score": 0.5
+        }
+      ]
+    }
+  }
+]

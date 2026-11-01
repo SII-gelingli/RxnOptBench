@@ -1,0 +1,14 @@
+{
+  "synthetic_fib_1": {
+    "toy_factor_a": 0,
+    "toy_factor_b": 0
+  },
+  "synthetic_fib_2": {
+    "toy_factor_a": 1,
+    "toy_factor_b": 1
+  },
+  "synthetic_fib_3": {
+    "toy_factor_a": 0,
+    "toy_factor_b": 1
+  }
+}

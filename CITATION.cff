@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "Please cite the RxnOptBench paper when using this evaluation code. Final publication identifiers are pending."
+title: "RxnOptBench: Benchmarking LLMs for Reaction-Condition Optimization in Organic Methodology"
+type: software
+license: MIT
+authors:
+  - family-names: Ge
+    given-names: Lingli
+  - family-names: Wang
+    given-names: Yubin
+  - family-names: Gao
+    given-names: Junyuan
+  - family-names: Song
+    given-names: Jiahe
+  - family-names: Sun
+    given-names: Jiaxing
+  - family-names: Zhu
+    given-names: Boyu
+  - family-names: Yang
+    given-names: Haote
+  - family-names: Wang
+    given-names: Jingchao
+  - family-names: Ma
+    given-names: Lixin
+  - family-names: Wu
+    given-names: Jiang
+  - family-names: Li
+    given-names: Yuqiang
+  - family-names: He
+    given-names: Conghui
+repository-code: "https://github.com/SII-gelingli/RxnOptBench"
+url: "https://github.com/SII-gelingli/RxnOptBench"
+keywords:
+  - reaction-condition optimization
+  - chemistry
+  - benchmark
+  - large language models
