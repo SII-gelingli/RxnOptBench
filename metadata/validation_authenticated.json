@@ -1,0 +1,232 @@
+{
+  "status": "pass",
+  "checked_utc": "2026-11-01T06:28:58.905060+00:00",
+  "mode": "authenticated",
+  "metadata_sha256": "1c326f07d795fa59bca3dbf799a1452619a15f3e496efd2d82c8d68977986758",
+  "mlcroissant_version": "1.1.1",
+  "jsonschema_version": "4.26.0",
+  "data_revision": [
+    "d93d99cc3d51a8fab77ba1b2cb14fc839248c447"
+  ],
+  "required_rai_present": {
+    "rai:dataLimitations": true,
+    "rai:dataBiases": true,
+    "rai:personalSensitiveInformation": true,
+    "rai:dataUseCases": true,
+    "rai:dataSocialImpact": true,
+    "rai:hasSyntheticData": true,
+    "prov:wasDerivedFrom": true,
+    "prov:wasGeneratedBy": true
+  },
+  "files": [
+    {
+      "id": "transport/fill_in_blank_all_blank",
+      "sha256": "f01b87c7f6ea09bb17d719a7d5c1bfa99704170cbd7cdbe968df12b4b031e9ed",
+      "bytes": 236529,
+      "http_status": 200
+    },
+    {
+      "id": "jsonl/fill_in_blank_all_blank",
+      "sha256": "50176b76538cf3c18bce2cf6e6ea344f22e9a6fd359b6c59dc5cb676cb526d79",
+      "bytes": 2672753,
+      "http_status": 200
+    },
+    {
+      "id": "native-json/fill_in_blank_all_blank",
+      "sha256": "da37bb7245eebd4f56d0d1f9e35751dfd65b6c9c90f07620fb8a138a2a762589",
+      "bytes": 5145259,
+      "http_status": 200
+    },
+    {
+      "id": "transport/fill_in_blank_all_blank_reference",
+      "sha256": "89e43c720366e2afa4ca5b384d4145708bee0bc28ca904cc93ae11032d9f3218",
+      "bytes": 176113,
+      "http_status": 200
+    },
+    {
+      "id": "jsonl/fill_in_blank_all_blank_reference",
+      "sha256": "0b60dda962c3f65b6922df36007e2df5af8fbc1011a42b4a54852ce90c37f7f4",
+      "bytes": 2233588,
+      "http_status": 200
+    },
+    {
+      "id": "native-json/fill_in_blank_all_blank_reference",
+      "sha256": "82ddfa388e5980fe8064e1a353f7dc4287f7dbb07bbcbbdc872904e19ff567f7",
+      "bytes": 4539210,
+      "http_status": 200
+    },
+    {
+      "id": "transport/multiple_choice_all_varying",
+      "sha256": "933e780ae0b79213f55fe59bcfeff3a103a0229a011a39ae944d6da4ebdc60a6",
+      "bytes": 218971,
+      "http_status": 200
+    },
+    {
+      "id": "jsonl/multiple_choice_all_varying",
+      "sha256": "252cd2bca895fe0b0d2d1a1fd47da2ca69d478da53774cd8977f6a2d28853d58",
+      "bytes": 2637997,
+      "http_status": 200
+    },
+    {
+      "id": "native-json/multiple_choice_all_varying",
+      "sha256": "8dae7cb1be7c55b152439dfef33d2c6ce51ea0d7bb4f2a133592c274beb3ba4b",
+      "bytes": 4875967,
+      "http_status": 200
+    },
+    {
+      "id": "transport/multiple_choice_all_varying_reference",
+      "sha256": "d2fb9adf80204e420bd19546748deb550b76ad8de63e607ce8fae2ecf476da7d",
+      "bytes": 164453,
+      "http_status": 200
+    },
+    {
+      "id": "jsonl/multiple_choice_all_varying_reference",
+      "sha256": "795ac2a253ff027a1a9192f07e4a548d7e481e9d38086529023f5a95de6f47f5",
+      "bytes": 2232135,
+      "http_status": 200
+    },
+    {
+      "id": "native-json/multiple_choice_all_varying_reference",
+      "sha256": "01ad94f5e635cdba96c34f0f5c2484aa65b20c8a527ae22e98c2902989d25019",
+      "bytes": 4423949,
+      "http_status": 200
+    },
+    {
+      "id": "transport/multiple_choice_all_varying_reference_control",
+      "sha256": "28ce780f29c0d4bdafce204aa8a49b10c0bab20223e2505e51feebbe70d68f57",
+      "bytes": 128640,
+      "http_status": 200
+    },
+    {
+      "id": "jsonl/multiple_choice_all_varying_reference_control",
+      "sha256": "e3728c013474ece7eea5824f53412e0c8793730a297bd01ba052b942e562f69e",
+      "bytes": 1434800,
+      "http_status": 200
+    },
+    {
+      "id": "native-json/multiple_choice_all_varying_reference_control",
+      "sha256": "494c639aa427c8eae56e2efe67984cc25f7abe8b398f74081de521369020d789",
+      "bytes": 2627702,
+      "http_status": 200
+    },
+    {
+      "id": "transport/multiple_choice_single_varying",
+      "sha256": "084d2f9aaf46357201d2c4426ecba29fb51b0c5140bfe4ab227ab1e9aa475cef",
+      "bytes": 190864,
+      "http_status": 200
+    },
+    {
+      "id": "jsonl/multiple_choice_single_varying",
+      "sha256": "7a8cd539be62add5ee3c2ea1ae0ccccb24298bc977ffac7b1519dbb0c5aebfe2",
+      "bytes": 2336025,
+      "http_status": 200
+    },
+    {
+      "id": "native-json/multiple_choice_single_varying",
+      "sha256": "4ec31ac22e1ceeeffe7962534da14ad96924446b8a6d9570d314c7b914c0204e",
+      "bytes": 3993826,
+      "http_status": 200
+    },
+    {
+      "id": "transport/multiple_choice_single_varying_reference",
+      "sha256": "ba84867208d5907198a4f0002699a397d0623ef0b20b721e920033dbaa44e051",
+      "bytes": 218182,
+      "http_status": 200
+    },
+    {
+      "id": "jsonl/multiple_choice_single_varying_reference",
+      "sha256": "b741baecad4aee7220e333d7a12f02912066504c89343d63498fe755c236c9ce",
+      "bytes": 3908166,
+      "http_status": 200
+    },
+    {
+      "id": "native-json/multiple_choice_single_varying_reference",
+      "sha256": "4837906f9af12233474e2a08b77f9b8a87cf9f9da890b566803ab60b95ca8569",
+      "bytes": 7754018,
+      "http_status": 200
+    },
+    {
+      "id": "transport/multiple_choice_single_varying_reference_control",
+      "sha256": "a7d7984fb5af22d37deb8021f02d503f74aab763033f181e6b3688184abbd2ab",
+      "bytes": 156893,
+      "http_status": 200
+    },
+    {
+      "id": "jsonl/multiple_choice_single_varying_reference_control",
+      "sha256": "7b2f58c484a42ecd5aff968dded18250262ac9c329e67bd319678d42b515676e",
+      "bytes": 1932423,
+      "http_status": 200
+    },
+    {
+      "id": "native-json/multiple_choice_single_varying_reference_control",
+      "sha256": "32bc689efa2b99b60410d7293963840e80f19ef6330072fa95a24e724e4bc19f",
+      "bytes": 3282527,
+      "http_status": 200
+    }
+  ],
+  "record_sets": [
+    {
+      "id": "fill_in_blank_all_blank",
+      "records": 552,
+      "lossless_matches": 552,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "fill_in_blank_all_blank_reference",
+      "records": 310,
+      "lossless_matches": 310,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "multiple_choice_all_varying",
+      "records": 552,
+      "lossless_matches": 552,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "multiple_choice_all_varying_reference",
+      "records": 310,
+      "lossless_matches": 310,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "multiple_choice_all_varying_reference_control",
+      "records": 310,
+      "lossless_matches": 310,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "multiple_choice_single_varying",
+      "records": 1039,
+      "lossless_matches": 1039,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "multiple_choice_single_varying_reference",
+      "records": 850,
+      "lossless_matches": 850,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    },
+    {
+      "id": "multiple_choice_single_varying_reference_control",
+      "records": 850,
+      "lossless_matches": 850,
+      "json_schema_validated": true,
+      "native_json_equals_jsonl": true
+    }
+  ],
+  "authentication": "standard cached HF login or HF_TOKEN; secret not recorded",
+  "static_errors": [],
+  "static_warnings": [
+    "[Metadata(RxnOptBench)] Property \"https://schema.org/datePublished\" is recommended, but does not exist."
+  ],
+  "records_loaded": 4773,
+  "limits": "This checks the official reference loader, complete local record equality, declared RAI presence, and nested structural schema. It does not establish scientific label correctness, source-document licensing, gated-access acceptance by reviewers, or approval by the NeurIPS online validator. Authenticated mode verifies authorized network access; anonymous downloads remain gated."
+}

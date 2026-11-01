@@ -18,3 +18,8 @@ dataset's full terms before using or sharing its records.
 The toy JSON records in `examples/synthetic/` are invented interface
 demonstrations included under MIT. They contain no real benchmark items
 or publisher materials.
+
+`LICENSE-DATA.md` is a verbatim copy of the terms for the separately hosted
+Hugging Face dataset. Its `data/`, `examples/`, and `LICENSE-CODE` paths are
+relative to that dataset repository. It does not apply to this repository's
+`examples/synthetic/`. The MIT code license in this repository is `LICENSE`.

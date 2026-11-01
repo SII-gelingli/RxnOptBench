@@ -208,3 +208,12 @@ hosted benchmark dataset is limited to non-commercial research use under its
 own terms and access agreement. The MIT license does not relicense those
 records or any third-party source materials. See
 [LICENSE_SCOPE.md](LICENSE_SCOPE.md).
+
+## Croissant metadata
+
+The complete [Croissant file](metadata/croissant.json) includes core and RAI
+metadata, immutable file URLs, and SHA-256 checksums.
+[Loading instructions and validation results](metadata/README.md) explain
+how authorized users can recover every nested question through the standard
+Croissant loader. Metadata is available here without a dataset download
+agreement; the actual records remain in the Hugging Face dataset.
